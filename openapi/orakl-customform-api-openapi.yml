@@ -1,0 +1,606 @@
+openapi: 3.1.0
+info:
+  title: Orakl Oncology public website CommonContent CustomForm API
+  description: Orakl Oncology public website API
+  version: 1.0.7
+servers:
+- url: /
+  description: ''
+security: []
+tags:
+- name: CustomForm
+  description: 'CustomForms describe each node structure family,
+
+    They are mandatory before creating any Node.'
+paths:
+  /api/custom_forms/{id}/definition:
+    get:
+      operationId: api_custom_forms_item_definition
+      tags:
+      - CustomForm
+      responses:
+        '200':
+          description: CustomForm resource
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/CustomForm.jsonld'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomForm'
+            application/x-www-form-urlencoded:
+              schema:
+                $ref: '#/components/schemas/CustomForm.x-www-form-urlencoded'
+        '404':
+          description: Not found
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Error.jsonld'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          links: {}
+        '401':
+          description: Invalid JWT Token
+      summary: Retrieves a CustomForm resource.
+      description: Retrieves a CustomForm resource.
+      parameters:
+      - name: id
+        in: path
+        description: CustomForm identifier
+        required: true
+        deprecated: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+      - name: _preview
+        in: query
+        description: Enables preview mode (requires a valid bearer JWT token)
+        required: false
+        deprecated: false
+        schema:
+          type: boolean
+        style: form
+        explode: false
+        example: '1'
+      security:
+      - JWT: []
+  /api/custom_forms/{id}/post:
+    post:
+      operationId: api_custom_forms_item_post
+      tags:
+      - CustomForm
+      responses:
+        '201':
+          description: CustomForm resource created
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/CustomForm.jsonld'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomForm'
+            application/x-www-form-urlencoded:
+              schema:
+                $ref: '#/components/schemas/CustomForm.x-www-form-urlencoded'
+          links: {}
+        '400':
+          description: Invalid input
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Error.jsonld'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          links: {}
+        '422':
+          description: An error occurred
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/ConstraintViolation.jsonld'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConstraintViolation'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConstraintViolation'
+          links: {}
+      summary: Creates a CustomForm resource.
+      description: Creates a CustomForm resource.
+      parameters: []
+      requestBody:
+        description: The new CustomForm resource
+        content:
+          application/ld+json:
+            schema:
+              $ref: '#/components/schemas/CustomForm'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomForm'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CustomForm'
+        required: true
+components:
+  schemas:
+    ConstraintViolation:
+      type: object
+      description: Unprocessable entity
+      properties:
+        status:
+          default: 422
+          type: integer
+        violations:
+          type: array
+          items:
+            type: object
+            properties:
+              propertyPath:
+                type: string
+                description: The property path of the violation
+              message:
+                type: string
+                description: The message associated with the violation
+              code:
+                type: string
+                description: The code of the violation
+              hint:
+                type: string
+                description: An extra hint to understand the violation
+              payload:
+                type: object
+                additionalProperties: true
+                description: The serialized payload of the violation
+            required:
+            - propertyPath
+            - message
+        detail:
+          readOnly: true
+          type: string
+        type:
+          readOnly: true
+          type: string
+        title:
+          readOnly: true
+          type:
+          - string
+          - 'null'
+        instance:
+          readOnly: true
+          type:
+          - string
+          - 'null'
+    HydraItemBaseSchema:
+      type: object
+      properties:
+        '@context':
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          type: string
+        '@type':
+          type: string
+      required:
+      - '@id'
+      - '@type'
+    CustomForm.jsonld:
+      allOf:
+      - $ref: '#/components/schemas/HydraItemBaseSchema'
+      - type: object
+        properties:
+          color:
+            maxLength: 7
+            description: Gets the value of color.
+            default: '#000000'
+            type:
+            - string
+            - 'null'
+          name:
+            maxLength: 250
+            default: Untitled
+            type: string
+          displayName:
+            maxLength: 250
+            default: Untitled
+            type: string
+          description:
+            type:
+            - string
+            - 'null'
+          email:
+            type:
+            - string
+            - 'null'
+          retentionTime:
+            maxLength: 15
+            type:
+            - string
+            - 'null'
+          id:
+            readOnly: true
+            type: integer
+          createdAt:
+            type:
+            - string
+            - 'null'
+            format: date-time
+          updatedAt:
+            type:
+            - string
+            - 'null'
+            format: date-time
+          open:
+            readOnly: true
+            description: 'Combine open flag and closeDate to determine
+
+              if current form is still available.'
+            type: boolean
+          fieldsNames:
+            readOnly: true
+            description: 'Get every node-type fields names in
+
+              a simple array.'
+            type: array
+            items:
+              type:
+              - string
+              - 'null'
+          fieldsLabels:
+            readOnly: true
+            description: 'Get every node-type fields names in
+
+              a simple array.'
+            type: array
+            items:
+              type:
+              - string
+              - 'null'
+          oneLineSummary:
+            readOnly: true
+            type: string
+          retentionTimeInterval:
+            readOnly: true
+            type:
+            - string
+            - 'null'
+            format: duration
+          fieldsSummary:
+            readOnly: true
+            type: string
+        required:
+        - name
+        - displayName
+        - email
+      description: 'CustomForms describe each node structure family,
+
+        They are mandatory before creating any Node.'
+    Error.jsonld:
+      allOf:
+      - $ref: '#/components/schemas/HydraItemBaseSchema'
+      - type: object
+        properties:
+          title:
+            readOnly: true
+            description: A short, human-readable summary of the problem.
+            type:
+            - string
+            - 'null'
+          detail:
+            readOnly: true
+            description: A human-readable explanation specific to this occurrence of the problem.
+            type:
+            - string
+            - 'null'
+          status:
+            type:
+            - number
+            - 'null'
+            examples:
+            - 404
+            default: 400
+          instance:
+            readOnly: true
+            description: A URI reference that identifies the specific occurrence of the problem. It may or may not yield further information if dereferenced.
+            type:
+            - string
+            - 'null'
+          type:
+            readOnly: true
+            description: A URI reference that identifies the problem type
+            type: string
+          description:
+            readOnly: true
+            type:
+            - string
+            - 'null'
+      description: A representation of common errors.
+    CustomForm.x-www-form-urlencoded:
+      type: object
+      description: 'CustomForms describe each node structure family,
+
+        They are mandatory before creating any Node.'
+      properties:
+        color:
+          maxLength: 7
+          description: Gets the value of color.
+          default: '#000000'
+          type:
+          - string
+          - 'null'
+        name:
+          maxLength: 250
+          default: Untitled
+          type: string
+        displayName:
+          maxLength: 250
+          default: Untitled
+          type: string
+        description:
+          type:
+          - string
+          - 'null'
+        email:
+          type:
+          - string
+          - 'null'
+        retentionTime:
+          maxLength: 15
+          type:
+          - string
+          - 'null'
+        id:
+          readOnly: true
+          type: integer
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        updatedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        open:
+          readOnly: true
+          description: 'Combine open flag and closeDate to determine
+
+            if current form is still available.'
+          type: boolean
+        fieldsNames:
+          readOnly: true
+          description: 'Get every node-type fields names in
+
+            a simple array.'
+          type: array
+          items:
+            type:
+            - string
+            - 'null'
+        fieldsLabels:
+          readOnly: true
+          description: 'Get every node-type fields names in
+
+            a simple array.'
+          type: array
+          items:
+            type:
+            - string
+            - 'null'
+        oneLineSummary:
+          readOnly: true
+          type: string
+        retentionTimeInterval:
+          readOnly: true
+          type:
+          - string
+          - 'null'
+          format: duration
+        fieldsSummary:
+          readOnly: true
+          type: string
+      required:
+      - name
+      - displayName
+      - email
+    CustomForm:
+      type: object
+      description: 'CustomForms describe each node structure family,
+
+        They are mandatory before creating any Node.'
+      properties:
+        color:
+          maxLength: 7
+          description: Gets the value of color.
+          default: '#000000'
+          type:
+          - string
+          - 'null'
+        name:
+          maxLength: 250
+          default: Untitled
+          type: string
+        displayName:
+          maxLength: 250
+          default: Untitled
+          type: string
+        description:
+          type:
+          - string
+          - 'null'
+        email:
+          type:
+          - string
+          - 'null'
+        retentionTime:
+          maxLength: 15
+          type:
+          - string
+          - 'null'
+        id:
+          readOnly: true
+          type: integer
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        updatedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        open:
+          readOnly: true
+          description: 'Combine open flag and closeDate to determine
+
+            if current form is still available.'
+          type: boolean
+        fieldsNames:
+          readOnly: true
+          description: 'Get every node-type fields names in
+
+            a simple array.'
+          type: array
+          items:
+            type:
+            - string
+            - 'null'
+        fieldsLabels:
+          readOnly: true
+          description: 'Get every node-type fields names in
+
+            a simple array.'
+          type: array
+          items:
+            type:
+            - string
+            - 'null'
+        oneLineSummary:
+          readOnly: true
+          type: string
+        retentionTimeInterval:
+          readOnly: true
+          type:
+          - string
+          - 'null'
+          format: duration
+        fieldsSummary:
+          readOnly: true
+          type: string
+      required:
+      - name
+      - displayName
+      - email
+    ConstraintViolation.jsonld:
+      allOf:
+      - $ref: '#/components/schemas/HydraItemBaseSchema'
+      - type: object
+        properties:
+          status:
+            default: 422
+            type: integer
+          violations:
+            type: array
+            items:
+              type: object
+              properties:
+                propertyPath:
+                  type: string
+                  description: The property path of the violation
+                message:
+                  type: string
+                  description: The message associated with the violation
+                code:
+                  type: string
+                  description: The code of the violation
+                hint:
+                  type: string
+                  description: An extra hint to understand the violation
+                payload:
+                  type: object
+                  additionalProperties: true
+                  description: The serialized payload of the violation
+              required:
+              - propertyPath
+              - message
+          detail:
+            readOnly: true
+            type: string
+          description:
+            readOnly: true
+            type: string
+          type:
+            readOnly: true
+            type: string
+          title:
+            readOnly: true
+            type:
+            - string
+            - 'null'
+          instance:
+            readOnly: true
+            type:
+            - string
+            - 'null'
+      description: Unprocessable entity
+    Error:
+      type: object
+      description: A representation of common errors.
+      properties:
+        title:
+          readOnly: true
+          description: A short, human-readable summary of the problem.
+          type:
+          - string
+          - 'null'
+        detail:
+          readOnly: true
+          description: A human-readable explanation specific to this occurrence of the problem.
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - number
+          - 'null'
+          examples:
+          - 404
+          default: 400
+        instance:
+          readOnly: true
+          description: A URI reference that identifies the specific occurrence of the problem. It may or may not yield further information if dereferenced.
+          type:
+          - string
+          - 'null'
+        type:
+          readOnly: true
+          description: A URI reference that identifies the problem type
+          type: string
+  securitySchemes:
+    JWT:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

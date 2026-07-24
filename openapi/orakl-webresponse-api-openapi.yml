@@ -1,0 +1,311 @@
+openapi: 3.1.0
+info:
+  title: Orakl Oncology public website CommonContent WebResponse API
+  description: Orakl Oncology public website API
+  version: 1.0.7
+servers:
+- url: /
+  description: ''
+security: []
+tags:
+- name: WebResponse
+  description: Resource 'WebResponse' operations.
+paths:
+  /api/web_response_by_path:
+    get:
+      operationId: page_get_by_path
+      tags:
+      - WebResponse
+      responses:
+        '200':
+          description: WebResponse resource
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/WebResponse.jsonld-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebResponse-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children'
+            application/x-www-form-urlencoded:
+              schema:
+                $ref: '#/components/schemas/WebResponse.x-www-form-urlencoded-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children'
+        '404':
+          description: Not found
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Error.jsonld'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          links: {}
+        '401':
+          description: Invalid JWT Token
+      summary: Retrieves a WebResponse resource.
+      description: Retrieves a WebResponse resource.
+      parameters:
+      - name: path
+        in: query
+        description: Resource path, or `/` for home page
+        required: true
+        deprecated: false
+        schema: []
+        style: form
+        explode: false
+      - name: _preview
+        in: query
+        description: Enables preview mode (requires a valid bearer JWT token)
+        required: false
+        deprecated: false
+        schema:
+          type: boolean
+        style: form
+        explode: false
+        example: '1'
+      security:
+      - JWT: []
+components:
+  schemas:
+    ? RealmInterface.x-www-form-urlencoded-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children
+    : type: object
+    ? BreadcrumbsInterface-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid
+    : type: object
+    ? PersistableInterface-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children
+    : type: object
+    ? WebResponse.x-www-form-urlencoded-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children
+    : type: object
+      properties:
+        item:
+          anyOf:
+          - $ref: '#/components/schemas/PersistableInterface.x-www-form-urlencoded-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children'
+          - type: 'null'
+        breadcrumbs:
+          anyOf:
+          - $ref: '#/components/schemas/BreadcrumbsInterface.x-www-form-urlencoded-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid'
+          - type: 'null'
+        head:
+          anyOf:
+          - $ref: '#/components/schemas/NodesSourcesHeadInterface.x-www-form-urlencoded-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid'
+          - type: 'null'
+        blocks:
+          type:
+          - array
+          - 'null'
+          items:
+            type: array
+            items:
+              type:
+              - string
+              - 'null'
+        realms:
+          type: array
+          items:
+            $ref: '#/components/schemas/RealmInterface.x-www-form-urlencoded-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children'
+        hidingBlocks:
+          default: false
+          type: boolean
+        maxAge:
+          description: WebResponse item maximum age in seconds
+          type:
+          - integer
+          - 'null'
+    ? WebResponse.jsonld-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children
+    : allOf:
+      - $ref: '#/components/schemas/HydraItemBaseSchema'
+      - type: object
+        properties:
+          item:
+            anyOf:
+            - $ref: '#/components/schemas/PersistableInterface.jsonld-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children'
+            - type: 'null'
+          breadcrumbs:
+            anyOf:
+            - $ref: '#/components/schemas/BreadcrumbsInterface.jsonld-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid'
+            - type: 'null'
+          head:
+            anyOf:
+            - $ref: '#/components/schemas/NodesSourcesHeadInterface.jsonld-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid'
+            - type: 'null'
+          blocks:
+            type:
+            - array
+            - 'null'
+            items:
+              type: array
+              items:
+                type:
+                - string
+                - 'null'
+          realms:
+            type: array
+            items:
+              $ref: '#/components/schemas/RealmInterface.jsonld-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children'
+          hidingBlocks:
+            default: false
+            type: boolean
+          maxAge:
+            description: WebResponse item maximum age in seconds
+            type:
+            - integer
+            - 'null'
+    ? PersistableInterface.jsonld-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children
+    : type: object
+    ? RealmInterface.jsonld-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children
+    : type: object
+    ? BreadcrumbsInterface.jsonld-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid
+    : type: object
+    HydraItemBaseSchema:
+      type: object
+      properties:
+        '@context':
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          type: string
+        '@type':
+          type: string
+      required:
+      - '@id'
+      - '@type'
+    ? NodesSourcesHeadInterface.x-www-form-urlencoded-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid
+    : type: object
+    ? PersistableInterface.x-www-form-urlencoded-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children
+    : type: object
+    ? WebResponse-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children
+    : type: object
+      properties:
+        item:
+          anyOf:
+          - $ref: '#/components/schemas/PersistableInterface-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children'
+          - type: 'null'
+        breadcrumbs:
+          anyOf:
+          - $ref: '#/components/schemas/BreadcrumbsInterface-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid'
+          - type: 'null'
+        head:
+          anyOf:
+          - $ref: '#/components/schemas/NodesSourcesHeadInterface-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid'
+          - type: 'null'
+        blocks:
+          type:
+          - array
+          - 'null'
+          items:
+            type: array
+            items:
+              type:
+              - string
+              - 'null'
+        realms:
+          type: array
+          items:
+            $ref: '#/components/schemas/RealmInterface-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children'
+        hidingBlocks:
+          default: false
+          type: boolean
+        maxAge:
+          description: WebResponse item maximum age in seconds
+          type:
+          - integer
+          - 'null'
+    ? NodesSourcesHeadInterface.jsonld-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid
+    : type: object
+    Error.jsonld:
+      allOf:
+      - $ref: '#/components/schemas/HydraItemBaseSchema'
+      - type: object
+        properties:
+          title:
+            readOnly: true
+            description: A short, human-readable summary of the problem.
+            type:
+            - string
+            - 'null'
+          detail:
+            readOnly: true
+            description: A human-readable explanation specific to this occurrence of the problem.
+            type:
+            - string
+            - 'null'
+          status:
+            type:
+            - number
+            - 'null'
+            examples:
+            - 404
+            default: 400
+          instance:
+            readOnly: true
+            description: A URI reference that identifies the specific occurrence of the problem. It may or may not yield further information if dereferenced.
+            type:
+            - string
+            - 'null'
+          type:
+            readOnly: true
+            description: A URI reference that identifies the problem type
+            type: string
+          description:
+            readOnly: true
+            type:
+            - string
+            - 'null'
+      description: A representation of common errors.
+    ? BreadcrumbsInterface.x-www-form-urlencoded-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid
+    : type: object
+    ? RealmInterface-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children
+    : type: object
+    Error:
+      type: object
+      description: A representation of common errors.
+      properties:
+        title:
+          readOnly: true
+          description: A short, human-readable summary of the problem.
+          type:
+          - string
+          - 'null'
+        detail:
+          readOnly: true
+          description: A human-readable explanation specific to this occurrence of the problem.
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - number
+          - 'null'
+          examples:
+          - 404
+          default: 400
+        instance:
+          readOnly: true
+          description: A URI reference that identifies the specific occurrence of the problem. It may or may not yield further information if dereferenced.
+          type:
+          - string
+          - 'null'
+        type:
+          readOnly: true
+          description: A URI reference that identifies the problem type
+          type: string
+    ? NodesSourcesHeadInterface-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid
+    : type: object
+  securitySchemes:
+    JWT:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

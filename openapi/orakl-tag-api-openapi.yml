@@ -1,0 +1,693 @@
+openapi: 3.1.0
+info:
+  title: Orakl Oncology public website CommonContent Tag API
+  description: Orakl Oncology public website API
+  version: 1.0.7
+servers:
+- url: /
+  description: ''
+security: []
+tags:
+- name: Tag
+  description: Tags are hierarchical entities used to qualify Nodes.
+paths:
+  /api/tags:
+    get:
+      operationId: api_tags_get_collection
+      tags:
+      - Tag
+      responses:
+        '200':
+          description: Tag collection
+          content:
+            application/ld+json:
+              schema:
+                type: object
+                description: Tag.jsonld-tag_base collection.
+                allOf:
+                - $ref: '#/components/schemas/HydraCollectionBaseSchema'
+                - type: object
+                  required:
+                  - hydra:member
+                  properties:
+                    hydra:member:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/Tag.jsonld-tag_base'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tag-tag_base'
+            application/x-www-form-urlencoded:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tag.x-www-form-urlencoded-tag_base'
+        '401':
+          description: Invalid JWT Token
+      summary: Retrieves the collection of Tag resources.
+      description: Retrieves the collection of Tag resources.
+      parameters:
+      - name: page
+        in: query
+        description: The collection page number
+        required: false
+        deprecated: false
+        schema:
+          type: integer
+          default: 1
+        style: form
+        explode: false
+      - name: itemsPerPage
+        in: query
+        description: The number of items per page
+        required: false
+        deprecated: false
+        schema:
+          type: integer
+          default: 15
+          minimum: 0
+          maximum: 50
+        style: form
+        explode: false
+      - name: properties[]
+        in: query
+        description: 'Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty}'
+        required: false
+        deprecated: false
+        schema:
+          type: array
+          items:
+            type: string
+        style: form
+        explode: false
+      - name: nodesTags
+        in: query
+        description: Filter tags if they are related to any node or not.
+        required: false
+        deprecated: false
+        schema:
+          type: boolean
+        style: form
+        explode: false
+      - name: nodesTags[visible]
+        in: query
+        description: Filter tags if they are related to any visible node.
+        required: false
+        deprecated: false
+        schema:
+          type: boolean
+        style: form
+        explode: false
+      - name: nodesTags[nodeTypeName]
+        in: query
+        description: Filter tags if they are related to any node of `nodeTypeName`.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: nodesTags[nodeTypeName][]
+        in: query
+        description: Filter tags if they are related to any node of `nodeTypeName`.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: nodesTags[tagName]
+        in: query
+        description: Filter tags if they are related to any node which is linked to another `tagName`.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: nodesTags[tagName][]
+        in: query
+        description: Filter tags if they are related to any node which is linked to another `tagName`.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: nodesTags[nodeName]
+        in: query
+        description: Filter tags if they are related to a node with `nodeName`.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: nodesTags[nodeName][]
+        in: query
+        description: Filter tags if they are related to a node with `nodeName`.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: nodesTags[parentNodeName]
+        in: query
+        description: Filter tags if they are related to a node whom parent-node is `parentNodeName`.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: nodesTags[parentNodeName][]
+        in: query
+        description: Filter tags if they are related to a node whom parent-node is `parentNodeName`.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: order[tagName]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+          default: asc
+          enum:
+          - asc
+          - desc
+        style: form
+        explode: false
+      - name: order[position]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+          default: asc
+          enum:
+          - asc
+          - desc
+        style: form
+        explode: false
+      - name: order[createdAt]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+          default: asc
+          enum:
+          - asc
+          - desc
+        style: form
+        explode: false
+      - name: order[updatedAt]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+          default: asc
+          enum:
+          - asc
+          - desc
+        style: form
+        explode: false
+      - name: parent.id
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: integer
+        style: form
+        explode: false
+      - name: parent.id[]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: array
+          items:
+            type: integer
+        style: form
+        explode: true
+      - name: parent.tagName
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: parent.tagName[]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: array
+          items:
+            type: string
+        style: form
+        explode: true
+      - name: tagName
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: nodesTags.node
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: nodesTags.node[]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: array
+          items:
+            type: string
+        style: form
+        explode: true
+      - name: nodesTags.node.nodeName
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: nodesTags.node.nodeName[]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: array
+          items:
+            type: string
+        style: form
+        explode: true
+      - name: nodesTags.node.parent
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: nodesTags.node.parent[]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: array
+          items:
+            type: string
+        style: form
+        explode: true
+      - name: nodesTags.node.parent.nodeName
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: nodesTags.node.parent.nodeName[]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: array
+          items:
+            type: string
+        style: form
+        explode: true
+      - name: nodesTags.node.nodeTypeName
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: nodesTags.node.nodeTypeName[]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: array
+          items:
+            type: string
+        style: form
+        explode: true
+      - name: nodesTags.node.nodesTags.tag
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: nodesTags.node.nodesTags.tag[]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: array
+          items:
+            type: string
+        style: form
+        explode: true
+      - name: nodesTags.node.nodesTags.tag.tagName
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: nodesTags.node.nodesTags.tag.tagName[]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: array
+          items:
+            type: string
+        style: form
+        explode: true
+      - name: not[parent.id]
+        in: query
+        description: Filter items that are not equal.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: not[parent.id][]
+        in: query
+        description: Filter items that are not equal.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: not[parent.tagName]
+        in: query
+        description: Filter items that are not equal.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: not[parent.tagName][]
+        in: query
+        description: Filter items that are not equal.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: visible
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: boolean
+        style: form
+        explode: false
+      - name: locked
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: boolean
+        style: form
+        explode: false
+      - name: nodesTags.node.visible
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: boolean
+        style: form
+        explode: false
+      - name: position[between]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: position[gt]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: position[gte]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: position[lt]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: position[lte]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: position
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: number
+        style: form
+        explode: false
+      - name: position[]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: array
+          items:
+            type: number
+        style: form
+        explode: true
+      - name: _preview
+        in: query
+        description: Enables preview mode (requires a valid bearer JWT token)
+        required: false
+        deprecated: false
+        schema:
+          type: boolean
+        style: form
+        explode: false
+        example: '1'
+      security:
+      - JWT: []
+components:
+  schemas:
+    Tag.x-www-form-urlencoded-tag_base:
+      type: object
+      description: Tags are hierarchical entities used to qualify Nodes.
+      properties:
+        visible:
+          description: Is this tag visible in website?
+          default: true
+          example: 'true'
+          type: boolean
+        slug:
+          readOnly: true
+          description: Unique tag name (slug) used to build content URL or filter queries.
+          example: this-is-a-tag-name
+          type: string
+    HydraCollectionBaseSchemaNoPagination:
+      type: object
+      properties:
+        hydra:totalItems:
+          type: integer
+          minimum: 0
+        hydra:search:
+          type: object
+          properties:
+            '@type':
+              type: string
+            hydra:template:
+              type: string
+            hydra:variableRepresentation:
+              type: string
+            hydra:mapping:
+              type: array
+              items:
+                type: object
+                properties:
+                  '@type':
+                    type: string
+                  variable:
+                    type: string
+                  property:
+                    type:
+                    - string
+                    - 'null'
+                  required:
+                    type: boolean
+    HydraItemBaseSchema:
+      type: object
+      properties:
+        '@context':
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          type: string
+        '@type':
+          type: string
+      required:
+      - '@id'
+      - '@type'
+    HydraCollectionBaseSchema:
+      allOf:
+      - $ref: '#/components/schemas/HydraCollectionBaseSchemaNoPagination'
+      - type: object
+        properties:
+          hydra:view:
+            type: object
+            properties:
+              '@id':
+                type: string
+                format: iri-reference
+              '@type':
+                type: string
+              hydra:first:
+                type: string
+                format: iri-reference
+              hydra:last:
+                type: string
+                format: iri-reference
+              hydra:previous:
+                type: string
+                format: iri-reference
+              hydra:next:
+                type: string
+                format: iri-reference
+            example:
+              '@id': string
+              '@type': string
+              hydra:first: string
+              hydra:last: string
+              hydra:previous: string
+              hydra:next: string
+    Tag-tag_base:
+      type: object
+      description: Tags are hierarchical entities used to qualify Nodes.
+      properties:
+        visible:
+          description: Is this tag visible in website?
+          default: true
+          example: 'true'
+          type: boolean
+        slug:
+          readOnly: true
+          description: Unique tag name (slug) used to build content URL or filter queries.
+          example: this-is-a-tag-name
+          type: string
+    Tag.jsonld-tag_base:
+      allOf:
+      - $ref: '#/components/schemas/HydraItemBaseSchema'
+      - type: object
+        properties:
+          visible:
+            description: Is this tag visible in website?
+            default: true
+            example: 'true'
+            type: boolean
+          slug:
+            readOnly: true
+            description: Unique tag name (slug) used to build content URL or filter queries.
+            example: this-is-a-tag-name
+            type: string
+      description: Tags are hierarchical entities used to qualify Nodes.
+  securitySchemes:
+    JWT:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

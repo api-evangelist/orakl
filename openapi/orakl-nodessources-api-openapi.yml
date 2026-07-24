@@ -1,0 +1,1071 @@
+openapi: 3.1.0
+info:
+  title: Orakl Oncology public website CommonContent NodesSources API
+  description: Orakl Oncology public website API
+  version: 1.0.7
+servers:
+- url: /
+  description: ''
+security: []
+tags:
+- name: NodesSources
+  description: NodesSources store Node content according to a translation and a NodeType.
+paths:
+  /api/nodes_sources:
+    get:
+      operationId: api_nodes_sources_get_collection
+      tags:
+      - NodesSources
+      responses:
+        '200':
+          description: NodesSources collection
+          content:
+            application/ld+json:
+              schema:
+                type: object
+                description: NodesSources.jsonld-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps collection.
+                allOf:
+                - $ref: '#/components/schemas/HydraCollectionBaseSchema'
+                - type: object
+                  required:
+                  - hydra:member
+                  properties:
+                    hydra:member:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/NodesSources.jsonld-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NodesSources-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps'
+            application/x-www-form-urlencoded:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NodesSources.x-www-form-urlencoded-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps'
+        '401':
+          description: Invalid JWT Token
+      summary: Retrieves the collection of NodesSources resources.
+      description: Retrieves the collection of NodesSources resources.
+      parameters:
+      - name: page
+        in: query
+        description: The collection page number
+        required: false
+        deprecated: false
+        schema:
+          type: integer
+          default: 1
+        style: form
+        explode: false
+      - name: itemsPerPage
+        in: query
+        description: The number of items per page
+        required: false
+        deprecated: false
+        schema:
+          type: integer
+          default: 15
+          minimum: 0
+          maximum: 50
+        style: form
+        explode: false
+      - name: properties[]
+        in: query
+        description: 'Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty}'
+        required: false
+        deprecated: false
+        schema:
+          type: array
+          items:
+            type: string
+        style: form
+        explode: false
+      - name: reachable
+        in: query
+        description: Filter items when their node-type is reachable or not.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: node.nodeType.reachable
+        in: query
+        description: 'Filter items when their node-type is reachable or not. **Deprecated: Use *reachable* instead.**'
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: publishable
+        in: query
+        description: Filter items when their node-type is publishable or not.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: node.nodeType.publishable
+        in: query
+        description: 'Filter items when their node-type is publishable or not. **Deprecated: Use *publishable* instead.**'
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: _locale
+        in: query
+        description: Filter items with translation locale (en).
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: tagGroup[]
+        in: query
+        description: Filter entities by tag name groups (comma separated). Inside groups filter use OR, between each groups filter use AND.
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: true
+        example: tag-1,tag-2&tagGroup[]=tag-3,tag-4
+      - name: title
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: metaTitle
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: metaDescription
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: node.id
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: integer
+        style: form
+        explode: false
+      - name: node.id[]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: array
+          items:
+            type: integer
+        style: form
+        explode: true
+      - name: node.nodeName
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: node.nodeName[]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: array
+          items:
+            type: string
+        style: form
+        explode: true
+      - name: node.parent
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: node.parent[]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: array
+          items:
+            type: string
+        style: form
+        explode: true
+      - name: node.parent.nodeName
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: node.parent.nodeName[]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: array
+          items:
+            type: string
+        style: form
+        explode: true
+      - name: node.nodesTags.tag
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: node.nodesTags.tag[]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: array
+          items:
+            type: string
+        style: form
+        explode: true
+      - name: node.nodesTags.tag.tagName
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: node.nodesTags.tag.tagName[]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: array
+          items:
+            type: string
+        style: form
+        explode: true
+      - name: node.nodeTypeName
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: node.nodeTypeName[]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: array
+          items:
+            type: string
+        style: form
+        explode: true
+      - name: translation.id
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: integer
+        style: form
+        explode: false
+      - name: translation.id[]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: array
+          items:
+            type: integer
+        style: form
+        explode: true
+      - name: translation.locale
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: translation.locale[]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: array
+          items:
+            type: string
+        style: form
+        explode: true
+      - name: publishedAt[before]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: publishedAt[strictly_before]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: publishedAt[after]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: publishedAt[strictly_after]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: node.createdAt[before]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: node.createdAt[strictly_before]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: node.createdAt[after]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: node.createdAt[strictly_after]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: node.updatedAt[before]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: node.updatedAt[strictly_before]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: node.updatedAt[after]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: node.updatedAt[strictly_after]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: order[publishedAt]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+          default: asc
+          enum:
+          - asc
+          - desc
+        style: form
+        explode: false
+      - name: order[node.position]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+          default: asc
+          enum:
+          - asc
+          - desc
+        style: form
+        explode: false
+      - name: order[node.createdAt]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+          default: asc
+          enum:
+          - asc
+          - desc
+        style: form
+        explode: false
+      - name: order[node.updatedAt]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+          default: asc
+          enum:
+          - asc
+          - desc
+        style: form
+        explode: false
+      - name: publishedAt[archive]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: noIndex
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: boolean
+        style: form
+        explode: false
+      - name: node.visible
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: boolean
+        style: form
+        explode: false
+      - name: node.home
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: boolean
+        style: form
+        explode: false
+      - name: node.position
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: number
+        style: form
+        explode: false
+      - name: node.position[]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: array
+          items:
+            type: number
+        style: form
+        explode: true
+      - name: node.position[between]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: node.position[gt]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: node.position[gte]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: node.position[lt]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: node.position[lte]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: not[node.nodeTypeName]
+        in: query
+        description: Filter items that are not equal.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: not[node.nodeTypeName][]
+        in: query
+        description: Filter items that are not equal.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: not[node.id]
+        in: query
+        description: Filter items that are not equal.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: not[node.id][]
+        in: query
+        description: Filter items that are not equal.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: not[node.nodesTags.tag.tagName]
+        in: query
+        description: Filter items that are not equal.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: not[node.nodesTags.tag.tagName][]
+        in: query
+        description: Filter items that are not equal.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: intersect[node.nodesTags.tag]
+        in: query
+        description: Discriminate an existing filter with additional filtering value using a new inner join.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: intersect[node.nodesTags.tag][]
+        in: query
+        description: Discriminate an existing filter with additional filtering value using a new inner join.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: intersect[node.nodesTags.tag.tagName]
+        in: query
+        description: Discriminate an existing filter with additional filtering value using a new inner join.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: intersect[node.nodesTags.tag.tagName][]
+        in: query
+        description: Discriminate an existing filter with additional filtering value using a new inner join.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: _preview
+        in: query
+        description: Enables preview mode (requires a valid bearer JWT token)
+        required: false
+        deprecated: false
+        schema:
+          type: boolean
+        style: form
+        explode: false
+        example: '1'
+      security:
+      - JWT: []
+components:
+  schemas:
+    HydraCollectionBaseSchemaNoPagination:
+      type: object
+      properties:
+        hydra:totalItems:
+          type: integer
+          minimum: 0
+        hydra:search:
+          type: object
+          properties:
+            '@type':
+              type: string
+            hydra:template:
+              type: string
+            hydra:variableRepresentation:
+              type: string
+            hydra:mapping:
+              type: array
+              items:
+                type: object
+                properties:
+                  '@type':
+                    type: string
+                  variable:
+                    type: string
+                  property:
+                    type:
+                    - string
+                    - 'null'
+                  required:
+                    type: boolean
+    Node-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps:
+      type: object
+      required:
+      - nodeName
+      properties:
+        nodeName:
+          maxLength: 255
+          description: Unique node name (slug) used to build content URL
+          default: ''
+          example: this-is-a-node-name
+          type: string
+        visible:
+          description: Is this node visible in website navigation?
+          default: true
+          example: 'true'
+          type: boolean
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        updatedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps'
+    Tag.jsonld-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps:
+      allOf:
+      - $ref: '#/components/schemas/HydraItemBaseSchema'
+      - type: object
+        properties:
+          visible:
+            description: Is this tag visible in website?
+            default: true
+            example: 'true'
+            type: boolean
+          createdAt:
+            type:
+            - string
+            - 'null'
+            format: date-time
+          updatedAt:
+            type:
+            - string
+            - 'null'
+            format: date-time
+          slug:
+            readOnly: true
+            description: Unique tag name (slug) used to build content URL or filter queries.
+            example: this-is-a-tag-name
+            type: string
+      description: Tags are hierarchical entities used to qualify Nodes.
+    ? NodesSources.x-www-form-urlencoded-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps
+    : type: object
+      description: NodesSources store Node content according to a translation and a NodeType.
+      properties:
+        title:
+          maxLength: 250
+          description: Content title
+          example: This is a title
+          type:
+          - string
+          - 'null'
+        publishedAt:
+          description: Content publication date and time
+          type:
+          - string
+          - 'null'
+          format: date-time
+        node:
+          $ref: '#/components/schemas/Node.x-www-form-urlencoded-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps'
+        translation:
+          $ref: '#/components/schemas/TranslationInterface.x-www-form-urlencoded-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps'
+        slug:
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+      required:
+      - node
+      - translation
+    ? TranslationInterface.x-www-form-urlencoded-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps
+    : type: object
+    ? Tag.x-www-form-urlencoded-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps
+    : type: object
+      properties:
+        visible:
+          description: Is this tag visible in website?
+          default: true
+          example: 'true'
+          type: boolean
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        updatedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        slug:
+          readOnly: true
+          description: Unique tag name (slug) used to build content URL or filter queries.
+          example: this-is-a-tag-name
+          type: string
+    HydraItemBaseSchema:
+      type: object
+      properties:
+        '@context':
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          type: string
+        '@type':
+          type: string
+      required:
+      - '@id'
+      - '@type'
+    NodesSources-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps:
+      type: object
+      description: NodesSources store Node content according to a translation and a NodeType.
+      properties:
+        title:
+          maxLength: 250
+          description: Content title
+          example: This is a title
+          type:
+          - string
+          - 'null'
+        publishedAt:
+          description: Content publication date and time
+          type:
+          - string
+          - 'null'
+          format: date-time
+        node:
+          $ref: '#/components/schemas/Node-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps'
+        translation:
+          $ref: '#/components/schemas/TranslationInterface-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps'
+        slug:
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+      required:
+      - node
+      - translation
+    ? NodesSources.jsonld-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps
+    : allOf:
+      - $ref: '#/components/schemas/HydraItemBaseSchema'
+      - type: object
+        properties:
+          title:
+            maxLength: 250
+            description: Content title
+            example: This is a title
+            type:
+            - string
+            - 'null'
+          publishedAt:
+            description: Content publication date and time
+            type:
+            - string
+            - 'null'
+            format: date-time
+          node:
+            $ref: '#/components/schemas/Node.jsonld-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps'
+          translation:
+            $ref: '#/components/schemas/TranslationInterface.jsonld-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps'
+          slug:
+            readOnly: true
+            type: string
+          '@type':
+            readOnly: true
+            type: string
+        required:
+        - node
+        - translation
+      description: NodesSources store Node content according to a translation and a NodeType.
+    Tag-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps:
+      type: object
+      properties:
+        visible:
+          description: Is this tag visible in website?
+          default: true
+          example: 'true'
+          type: boolean
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        updatedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        slug:
+          readOnly: true
+          description: Unique tag name (slug) used to build content URL or filter queries.
+          example: this-is-a-tag-name
+          type: string
+    HydraCollectionBaseSchema:
+      allOf:
+      - $ref: '#/components/schemas/HydraCollectionBaseSchemaNoPagination'
+      - type: object
+        properties:
+          hydra:view:
+            type: object
+            properties:
+              '@id':
+                type: string
+                format: iri-reference
+              '@type':
+                type: string
+              hydra:first:
+                type: string
+                format: iri-reference
+              hydra:last:
+                type: string
+                format: iri-reference
+              hydra:previous:
+                type: string
+                format: iri-reference
+              hydra:next:
+                type: string
+                format: iri-reference
+            example:
+              '@id': string
+              '@type': string
+              hydra:first: string
+              hydra:last: string
+              hydra:previous: string
+              hydra:next: string
+    ? Node.x-www-form-urlencoded-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps
+    : type: object
+      required:
+      - nodeName
+      properties:
+        nodeName:
+          maxLength: 255
+          description: Unique node name (slug) used to build content URL
+          default: ''
+          example: this-is-a-node-name
+          type: string
+        visible:
+          description: Is this node visible in website navigation?
+          default: true
+          example: 'true'
+          type: boolean
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        updatedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag.x-www-form-urlencoded-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps'
+    ? TranslationInterface.jsonld-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps
+    : type: object
+    ? TranslationInterface-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps
+    : type: object
+    Node.jsonld-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps:
+      allOf:
+      - $ref: '#/components/schemas/HydraItemBaseSchema'
+      - type: object
+        required:
+        - nodeName
+        properties:
+          nodeName:
+            maxLength: 255
+            description: Unique node name (slug) used to build content URL
+            default: ''
+            example: this-is-a-node-name
+            type: string
+          visible:
+            description: Is this node visible in website navigation?
+            default: true
+            example: 'true'
+            type: boolean
+          createdAt:
+            type:
+            - string
+            - 'null'
+            format: date-time
+          updatedAt:
+            type:
+            - string
+            - 'null'
+            format: date-time
+          tags:
+            type: array
+            items:
+              $ref: '#/components/schemas/Tag.jsonld-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps'
+      description: 'Node entities are the central feature of Roadiz,
+
+        it describes a document-like object which can be inherited
+
+        with *NodesSources* to create complex data structures.'
+  securitySchemes:
+    JWT:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

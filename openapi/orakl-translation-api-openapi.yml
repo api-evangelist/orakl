@@ -1,0 +1,404 @@
+openapi: 3.1.0
+info:
+  title: Orakl Oncology public website CommonContent Translation API
+  description: Orakl Oncology public website API
+  version: 1.0.7
+servers:
+- url: /
+  description: ''
+security: []
+tags:
+- name: Translation
+  description: 'Translations describe language locales to be used by Nodes,
+
+    Tags, UrlAliases and Documents.'
+paths:
+  /api/translations:
+    get:
+      operationId: api_translations_get_collection
+      tags:
+      - Translation
+      responses:
+        '200':
+          description: Translation collection
+          content:
+            application/ld+json:
+              schema:
+                type: object
+                description: Translation.jsonld-translation_base collection.
+                allOf:
+                - $ref: '#/components/schemas/HydraCollectionBaseSchema'
+                - type: object
+                  required:
+                  - hydra:member
+                  properties:
+                    hydra:member:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/Translation.jsonld-translation_base'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Translation-translation_base'
+            application/x-www-form-urlencoded:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Translation.x-www-form-urlencoded-translation_base'
+        '401':
+          description: Invalid JWT Token
+      summary: Retrieves the collection of Translation resources.
+      description: Retrieves the collection of Translation resources.
+      parameters:
+      - name: page
+        in: query
+        description: The collection page number
+        required: false
+        deprecated: false
+        schema:
+          type: integer
+          default: 1
+        style: form
+        explode: false
+      - name: itemsPerPage
+        in: query
+        description: The number of items per page
+        required: false
+        deprecated: false
+        schema:
+          type: integer
+          default: 15
+          minimum: 0
+          maximum: 50
+        style: form
+        explode: false
+      - name: properties[]
+        in: query
+        description: 'Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty}'
+        required: false
+        deprecated: false
+        schema:
+          type: array
+          items:
+            type: string
+        style: form
+        explode: false
+      - name: order[createdAt]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+          default: asc
+          enum:
+          - asc
+          - desc
+        style: form
+        explode: false
+      - name: order[updatedAt]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+          default: asc
+          enum:
+          - asc
+          - desc
+        style: form
+        explode: false
+      - name: order[locale]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+          default: asc
+          enum:
+          - asc
+          - desc
+        style: form
+        explode: false
+      - name: order[available]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+          default: asc
+          enum:
+          - asc
+          - desc
+        style: form
+        explode: false
+      - name: order[defaultTranslation]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+          default: asc
+          enum:
+          - asc
+          - desc
+        style: form
+        explode: false
+      - name: available
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: boolean
+        style: form
+        explode: false
+      - name: defaultTranslation
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: boolean
+        style: form
+        explode: false
+      - name: locale
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: locale[]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: array
+          items:
+            type: string
+        style: form
+        explode: true
+      - name: name
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: string
+        style: form
+        explode: false
+      - name: name[]
+        in: query
+        description: ''
+        required: false
+        deprecated: false
+        schema:
+          type: array
+          items:
+            type: string
+        style: form
+        explode: true
+      - name: _preview
+        in: query
+        description: Enables preview mode (requires a valid bearer JWT token)
+        required: false
+        deprecated: false
+        schema:
+          type: boolean
+        style: form
+        explode: false
+        example: '1'
+      security:
+      - JWT: []
+components:
+  schemas:
+    HydraCollectionBaseSchemaNoPagination:
+      type: object
+      properties:
+        hydra:totalItems:
+          type: integer
+          minimum: 0
+        hydra:search:
+          type: object
+          properties:
+            '@type':
+              type: string
+            hydra:template:
+              type: string
+            hydra:variableRepresentation:
+              type: string
+            hydra:mapping:
+              type: array
+              items:
+                type: object
+                properties:
+                  '@type':
+                    type: string
+                  variable:
+                    type: string
+                  property:
+                    type:
+                    - string
+                    - 'null'
+                  required:
+                    type: boolean
+    HydraItemBaseSchema:
+      type: object
+      properties:
+        '@context':
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          type: string
+        '@type':
+          type: string
+      required:
+      - '@id'
+      - '@type'
+    HydraCollectionBaseSchema:
+      allOf:
+      - $ref: '#/components/schemas/HydraCollectionBaseSchemaNoPagination'
+      - type: object
+        properties:
+          hydra:view:
+            type: object
+            properties:
+              '@id':
+                type: string
+                format: iri-reference
+              '@type':
+                type: string
+              hydra:first:
+                type: string
+                format: iri-reference
+              hydra:last:
+                type: string
+                format: iri-reference
+              hydra:previous:
+                type: string
+                format: iri-reference
+              hydra:next:
+                type: string
+                format: iri-reference
+            example:
+              '@id': string
+              '@type': string
+              hydra:first: string
+              hydra:last: string
+              hydra:previous: string
+              hydra:next: string
+    Translation.jsonld-translation_base:
+      allOf:
+      - $ref: '#/components/schemas/HydraItemBaseSchema'
+      - type: object
+        required:
+        - name
+        properties:
+          name:
+            maxLength: 250
+            description: Translation display name
+            default: ''
+            example: French
+            type: string
+          defaultTranslation:
+            description: Is translation default one?
+            default: false
+            example: 'true'
+            type: boolean
+          available:
+            description: Is translation available publicly?
+            default: true
+            example: 'true'
+            type: boolean
+          locale:
+            readOnly: true
+            description: Translation ISO 639-1 locale. See https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes
+            example: fr
+            type: string
+      description: 'Translations describe language locales to be used by Nodes,
+
+        Tags, UrlAliases and Documents.'
+    Translation-translation_base:
+      type: object
+      description: 'Translations describe language locales to be used by Nodes,
+
+        Tags, UrlAliases and Documents.'
+      required:
+      - name
+      properties:
+        name:
+          maxLength: 250
+          description: Translation display name
+          default: ''
+          example: French
+          type: string
+        defaultTranslation:
+          description: Is translation default one?
+          default: false
+          example: 'true'
+          type: boolean
+        available:
+          description: Is translation available publicly?
+          default: true
+          example: 'true'
+          type: boolean
+        locale:
+          readOnly: true
+          description: Translation ISO 639-1 locale. See https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes
+          example: fr
+          type: string
+    Translation.x-www-form-urlencoded-translation_base:
+      type: object
+      description: 'Translations describe language locales to be used by Nodes,
+
+        Tags, UrlAliases and Documents.'
+      required:
+      - name
+      properties:
+        name:
+          maxLength: 250
+          description: Translation display name
+          default: ''
+          example: French
+          type: string
+        defaultTranslation:
+          description: Is translation default one?
+          default: false
+          example: 'true'
+          type: boolean
+        available:
+          description: Is translation available publicly?
+          default: true
+          example: 'true'
+          type: boolean
+        locale:
+          readOnly: true
+          description: Translation ISO 639-1 locale. See https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes
+          example: fr
+          type: string
+  securitySchemes:
+    JWT:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
