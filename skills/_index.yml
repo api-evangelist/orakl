@@ -1,0 +1,13 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/orakl-website-openapi-original.json
+skills:
+- file: orakl-fetch-page-content.md
+  name: Fetch Orakl Oncology website page content
+  api: openapi/orakl-website-openapi-original.json
+  operations:
+  - page_get_by_path
+  - page_get_collection
+  - api_tags_get_collection
+  - api_folders_get_collection
+  - getCommonContent

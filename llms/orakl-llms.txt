@@ -1,0 +1,23 @@
+# Orakl Oncology
+
+> Orakl Oncology is a Paris-based TechBio company (a Gustave Roussy spin-off) building an AI-powered cancer drug-development platform on one of the largest biobanks of patient tumor avatars combined with clinical and omics data. This document indexes the public website API (an API Platform / Roadiz headless-CMS Hydra + JSON-LD surface with JWT auth) that powers orakl-oncology.com, as catalogued by API Evangelist. It does not cover the O-Predict / O-Validate commercial drug-development products, which are not exposed as a public API.
+
+## API
+- [Orakl Oncology Public Website API](https://www.orakl-oncology.com/api): API Platform / Roadiz Hydra + JSON-LD CMS; read access to pages, node sources, tags, folders, translations; path-based web-response resolver; custom forms; JWT token endpoint.
+
+## Specs
+- [OpenAPI 3.1 (original)](https://raw.githubusercontent.com/api-evangelist/orakl/refs/heads/main/openapi/orakl-website-openapi-original.json): 11 operations, 82 schemas, JWT bearer.
+- [Hydra API documentation (JSON-LD)](https://www.orakl-oncology.com/api/docs.jsonld)
+
+## Docs
+- [Website](https://www.orakl-oncology.com/)
+- [Legal notices](https://www.orakl-oncology.com/legals)
+- [LinkedIn](https://www.linkedin.com/company/orakloncology/)
+
+## Artifacts
+- [Authentication](https://raw.githubusercontent.com/api-evangelist/orakl/refs/heads/main/authentication/orakl-authentication.yml)
+- [Conventions](https://raw.githubusercontent.com/api-evangelist/orakl/refs/heads/main/conventions/orakl-conventions.yml)
+- [Error catalog (RFC 9457)](https://raw.githubusercontent.com/api-evangelist/orakl/refs/heads/main/errors/orakl-problem-types.yml)
+- [Data model](https://raw.githubusercontent.com/api-evangelist/orakl/refs/heads/main/data-model/orakl-data-model.yml)
+- [Conformance](https://raw.githubusercontent.com/api-evangelist/orakl/refs/heads/main/conformance/orakl-conformance.yml)
+- [MCP candidate tools](https://raw.githubusercontent.com/api-evangelist/orakl/refs/heads/main/mcp/orakl-mcp.yml)

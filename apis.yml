@@ -1,7 +1,28 @@
 aid: orakl
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/orakl.png
 name: Orakl
-description: Orakl is a company surfaced as a portfolio company of speedinvest and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Orakl Oncology is a Paris-based TechBio company, a spin-off from the Gustave
+  Roussy cancer institute, building an AI-powered drug-development platform that
+  combines one of the largest biobanks of patient tumor avatars (organoids) with
+  deep clinical and omics data and machine learning to predict how individual
+  patients will respond to new cancer drug candidates. Its commercial products
+  O-Predict and O-Validate deliver actionable response predictions to drug
+  developers across clinical trials. This API Evangelist profile documents the
+  public website API (an API Platform / Roadiz headless-CMS Hydra + JSON-LD
+  surface with JWT authentication) that powers orakl-oncology.com.
 url: https://raw.githubusercontent.com/api-evangelist/orakl/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,12 +32,277 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- TechBio
+- Oncology
+- Drug Development
+- Artificial Intelligence
+- Machine Learning
+- Healthcare
+- Biotechnology
+- Precision Medicine
+- Cancer Research
+- Content Management
+- JSON-LD
+apis:
+- aid: orakl:orakl-commoncontent-api
+  name: Orakl CommonContent API
+  description: Resource 'CommonContent' operations.
+  humanURL: https://www.orakl-oncology.com/api
+  baseURL: https://www.orakl-oncology.com
+  tags:
+  - CommonContent
+  properties:
+  - type: OpenAPI
+    url: openapi/orakl-commoncontent-api-openapi.yml
+  - type: APIReference
+    url: https://www.orakl-oncology.com/api/docs.jsonld
+  - type: Documentation
+    url: https://www.orakl-oncology.com/api
+  - type: ErrorCatalog
+    url: errors/orakl-problem-types.yml
+  - type: Conventions
+    url: conventions/orakl-conventions.yml
+  - type: DataModel
+    url: data-model/orakl-data-model.yml
+  - type: Conformance
+    url: conformance/orakl-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/orakl-lifecycle.yml
+- aid: orakl:orakl-customform-api
+  name: Orakl CustomForm API
+  description: >-
+    CustomForms describe each node structure family,
+
+    They are mandatory before creating any Node.
+  humanURL: https://www.orakl-oncology.com/api
+  baseURL: https://www.orakl-oncology.com
+  tags:
+  - CustomForm
+  properties:
+  - type: OpenAPI
+    url: openapi/orakl-customform-api-openapi.yml
+  - type: APIReference
+    url: https://www.orakl-oncology.com/api/docs.jsonld
+  - type: Documentation
+    url: https://www.orakl-oncology.com/api
+  - type: ErrorCatalog
+    url: errors/orakl-problem-types.yml
+  - type: Conventions
+    url: conventions/orakl-conventions.yml
+  - type: DataModel
+    url: data-model/orakl-data-model.yml
+  - type: Conformance
+    url: conformance/orakl-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/orakl-lifecycle.yml
+- aid: orakl:orakl-folder-api
+  name: Orakl Folder API
+  description: Folders entity represent a directory on server with datetime and naming.
+  humanURL: https://www.orakl-oncology.com/api
+  baseURL: https://www.orakl-oncology.com
+  tags:
+  - Folder
+  properties:
+  - type: OpenAPI
+    url: openapi/orakl-folder-api-openapi.yml
+  - type: APIReference
+    url: https://www.orakl-oncology.com/api/docs.jsonld
+  - type: Documentation
+    url: https://www.orakl-oncology.com/api
+  - type: ErrorCatalog
+    url: errors/orakl-problem-types.yml
+  - type: Conventions
+    url: conventions/orakl-conventions.yml
+  - type: DataModel
+    url: data-model/orakl-data-model.yml
+  - type: Conformance
+    url: conformance/orakl-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/orakl-lifecycle.yml
+- aid: orakl:orakl-login-check-api
+  name: Orakl Login Check API
+  description: The Login Check API from Orakl — 1 operation(s) for login check.
+  humanURL: https://www.orakl-oncology.com/api
+  baseURL: https://www.orakl-oncology.com
+  tags:
+  - Login Check
+  properties:
+  - type: OpenAPI
+    url: openapi/orakl-login-check-api-openapi.yml
+  - type: APIReference
+    url: https://www.orakl-oncology.com/api/docs.jsonld
+  - type: Documentation
+    url: https://www.orakl-oncology.com/api
+  - type: ErrorCatalog
+    url: errors/orakl-problem-types.yml
+  - type: Conventions
+    url: conventions/orakl-conventions.yml
+  - type: DataModel
+    url: data-model/orakl-data-model.yml
+  - type: Conformance
+    url: conformance/orakl-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/orakl-lifecycle.yml
+- aid: orakl:orakl-nodessources-api
+  name: Orakl NodesSources API
+  description: NodesSources store Node content according to a translation and a NodeType.
+  humanURL: https://www.orakl-oncology.com/api
+  baseURL: https://www.orakl-oncology.com
+  tags:
+  - NodesSources
+  properties:
+  - type: OpenAPI
+    url: openapi/orakl-nodessources-api-openapi.yml
+  - type: APIReference
+    url: https://www.orakl-oncology.com/api/docs.jsonld
+  - type: Documentation
+    url: https://www.orakl-oncology.com/api
+  - type: ErrorCatalog
+    url: errors/orakl-problem-types.yml
+  - type: Conventions
+    url: conventions/orakl-conventions.yml
+  - type: DataModel
+    url: data-model/orakl-data-model.yml
+  - type: Conformance
+    url: conformance/orakl-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/orakl-lifecycle.yml
+- aid: orakl:orakl-page-api
+  name: Orakl Page API
+  description: Page node-source entity.
+  humanURL: https://www.orakl-oncology.com/api
+  baseURL: https://www.orakl-oncology.com
+  tags:
+  - Page
+  properties:
+  - type: OpenAPI
+    url: openapi/orakl-page-api-openapi.yml
+  - type: APIReference
+    url: https://www.orakl-oncology.com/api/docs.jsonld
+  - type: Documentation
+    url: https://www.orakl-oncology.com/api
+  - type: ErrorCatalog
+    url: errors/orakl-problem-types.yml
+  - type: Conventions
+    url: conventions/orakl-conventions.yml
+  - type: DataModel
+    url: data-model/orakl-data-model.yml
+  - type: Conformance
+    url: conformance/orakl-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/orakl-lifecycle.yml
+- aid: orakl:orakl-tag-api
+  name: Orakl Tag API
+  description: Tags are hierarchical entities used to qualify Nodes.
+  humanURL: https://www.orakl-oncology.com/api
+  baseURL: https://www.orakl-oncology.com
+  tags:
+  - Tag
+  properties:
+  - type: OpenAPI
+    url: openapi/orakl-tag-api-openapi.yml
+  - type: APIReference
+    url: https://www.orakl-oncology.com/api/docs.jsonld
+  - type: Documentation
+    url: https://www.orakl-oncology.com/api
+  - type: ErrorCatalog
+    url: errors/orakl-problem-types.yml
+  - type: Conventions
+    url: conventions/orakl-conventions.yml
+  - type: DataModel
+    url: data-model/orakl-data-model.yml
+  - type: Conformance
+    url: conformance/orakl-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/orakl-lifecycle.yml
+- aid: orakl:orakl-translation-api
+  name: Orakl Translation API
+  description: >-
+    Translations describe language locales to be used by Nodes,
+
+    Tags, UrlAliases and Documents.
+  humanURL: https://www.orakl-oncology.com/api
+  baseURL: https://www.orakl-oncology.com
+  tags:
+  - Translation
+  properties:
+  - type: OpenAPI
+    url: openapi/orakl-translation-api-openapi.yml
+  - type: APIReference
+    url: https://www.orakl-oncology.com/api/docs.jsonld
+  - type: Documentation
+    url: https://www.orakl-oncology.com/api
+  - type: ErrorCatalog
+    url: errors/orakl-problem-types.yml
+  - type: Conventions
+    url: conventions/orakl-conventions.yml
+  - type: DataModel
+    url: data-model/orakl-data-model.yml
+  - type: Conformance
+    url: conformance/orakl-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/orakl-lifecycle.yml
+- aid: orakl:orakl-webresponse-api
+  name: Orakl WebResponse API
+  description: Resource 'WebResponse' operations.
+  humanURL: https://www.orakl-oncology.com/api
+  baseURL: https://www.orakl-oncology.com
+  tags:
+  - WebResponse
+  properties:
+  - type: OpenAPI
+    url: openapi/orakl-webresponse-api-openapi.yml
+  - type: APIReference
+    url: https://www.orakl-oncology.com/api/docs.jsonld
+  - type: Documentation
+    url: https://www.orakl-oncology.com/api
+  - type: ErrorCatalog
+    url: errors/orakl-problem-types.yml
+  - type: Conventions
+    url: conventions/orakl-conventions.yml
+  - type: DataModel
+    url: data-model/orakl-data-model.yml
+  - type: Conformance
+    url: conformance/orakl-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/orakl-lifecycle.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+- type: DomainSecurity
+  url: security/orakl-domain-security.yml
+- type: Website
+  url: https://www.orakl-oncology.com/
+- type: Documentation
+  url: https://www.orakl-oncology.com/api
+- type: APIReference
+  url: https://www.orakl-oncology.com/api/docs.jsonld
+- type: TermsOfService
+  url: https://www.orakl-oncology.com/legals
+- type: PrivacyPolicy
+  url: https://www.orakl-oncology.com/legals
+- type: LinkedIn
+  url: https://www.linkedin.com/company/orakloncology/
+- type: AgenticAccess
+  url: agentic-access/orakl-agentic-access.yml
+- type: Authentication
+  url: authentication/orakl-authentication.yml
+- type: WellKnown
+  url: well-known/orakl-well-known.yml
+- type: MCPServer
+  url: mcp/orakl-mcp.yml
+- type: LLMsTxt
+  url: llms/orakl-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 15
+  pass: local-v1

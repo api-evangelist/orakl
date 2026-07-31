@@ -1,0 +1,18 @@
+generated: '2026-07-20'
+method: searched
+host: https://www.orakl-oncology.com
+notes: >-
+  Probed the standard /.well-known discovery surface on the Orakl Oncology host.
+  None are published (all 404); absence is valid recorded data. The site does
+  expose a Hydra apiDocumentation link at /api (API Platform).
+documents:
+- path: /.well-known/security.txt
+  status: 404
+- path: /.well-known/openid-configuration
+  status: 404
+- path: /.well-known/oauth-authorization-server
+  status: 404
+- path: /.well-known/api-catalog
+  status: 404
+- path: /.well-known/ai-plugin.json
+  status: 404

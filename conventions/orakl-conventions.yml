@@ -1,0 +1,53 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/orakl-website-openapi-original.json
+notes: >-
+  Cross-cutting request/response semantics for the Orakl Oncology public website
+  API, derived from the OpenAPI (API Platform / Roadiz Hydra). No provider
+  conventions page is published; values reflect the spec and API Platform
+  defaults.
+authentication:
+  style: jwt-bearer
+  scheme: http bearer (bearerFormat JWT)
+  token_endpoint: POST /api/token
+  header: 'Authorization: Bearer <jwt>'
+  reference: authentication/orakl-authentication.yml
+pagination:
+  style: page-number
+  params:
+    page: The collection page number (default 1)
+    itemsPerPage: Items per page (default 15, min 0, max 50)
+  response_fields:
+    - 'hydra:member (collection items)'
+    - 'hydra:totalItems'
+    - 'hydra:view (first/last/next/previous page links)'
+sparse_fieldsets:
+  supported: true
+  param: 'properties[]'
+  description: >-
+    Reduce a response to only the requested properties; nested addressing via
+    nested arrays. Example: properties[]=name&properties[]=slug
+content_negotiation:
+  formats:
+    - application/ld+json (Hydra/JSON-LD, default)
+    - application/json
+  hypermedia: Hydra (JSON-LD @context, @id, @type)
+error_envelope:
+  format: rfc9457
+  media_types:
+    - application/problem+json
+    - application/ld+json (hydra:Error)
+  reference: errors/orakl-problem-types.yml
+idempotency:
+  supported: false
+  notes: >-
+    The API documents no idempotency-key mechanism. Reads are safe/idempotent by
+    HTTP method; the only writes are custom-form submission and token issuance.
+versioning:
+  scheme: none-in-path
+  api_version: 1.0.7
+  notes: 'Single unversioned /api base; spec info.version is 1.0.7.'
+  reference: lifecycle/orakl-lifecycle.yml
+rate_limiting:
+  documented: false
+  notes: 'No rate-limit headers or policy documented; Cloudflare/Varnish fronts the origin.'

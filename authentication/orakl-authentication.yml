@@ -1,0 +1,13 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/orakl-website-openapi-original.json
+summary:
+  types:
+  - http
+schemes:
+- name: JWT
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  sources:
+  - openapi/orakl-website-openapi-original.json

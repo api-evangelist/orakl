@@ -1,0 +1,29 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/orakl-website-openapi-original.json
+format: rfc9457
+notes: >-
+  Derived from the response codes declared across the Orakl Oncology public
+  website API (API Platform / Roadiz). Errors are returned as
+  application/problem+json (RFC 9457) and application/ld+json Hydra error
+  documents. Titles/remediation are generalized from API Platform defaults; no
+  provider error-reference page is published.
+problems:
+- status: 400
+  title: Bad request
+  detail: The request was malformed or contained invalid parameters.
+  remediation: Check query parameters (page, itemsPerPage, properties[]) and request body shape.
+- status: 401
+  title: Unauthorized
+  detail: JWT bearer credentials are missing or invalid.
+  remediation: Obtain a token from POST /api/token and send it as Authorization Bearer.
+  source_operation: openapi/orakl-website-openapi-original.json#login_check_post
+- status: 404
+  title: Not found
+  detail: The requested resource or collection item does not exist.
+  remediation: Verify the resource id or path.
+- status: 422
+  title: Unprocessable entity
+  detail: Validation failed for the submitted payload (e.g. a custom form submission).
+  remediation: Correct the fields flagged in the violations list and resubmit.
+  source_operation: openapi/orakl-website-openapi-original.json#api_custom_forms_item_post

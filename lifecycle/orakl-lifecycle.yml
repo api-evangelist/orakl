@@ -1,0 +1,18 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/orakl-website-openapi-original.json
+notes: >-
+  Lifecycle posture for the Orakl Oncology public website API. No published
+  versioning policy, deprecation policy, SLA, or status page was found; values
+  reflect the OpenAPI only. No StatusPage or Deprecation pointer is emitted.
+versioning:
+  scheme: none-in-path
+  api_version: 1.0.7
+  notes: 'Single unversioned /api base; spec info.version is 1.0.7.'
+deprecation:
+  policy_url: null
+  sunset_header: false
+  deprecated_operations: []
+sla:
+  url: null
+status_page: null

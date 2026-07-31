@@ -1,0 +1,45 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: openapi/orakl-website-openapi-original.json
+notes: >-
+  No official hosted/remote MCP server was found for Orakl Oncology. Candidate
+  tool list derived one-to-one from the public website API operations (read-only
+  content endpoints plus the token/custom-form writes). Not an official server.
+server:
+  name: orakl-website
+  transport: http
+tools:
+- name: get_common_content
+  description: Get shared/global site content (header, footer, common blocks).
+  source_operation: openapi/orakl-website-openapi-original.json#getCommonContent
+- name: get_web_response_by_path
+  description: Resolve the composed web response for a front-end path.
+  source_operation: openapi/orakl-website-openapi-original.json#page_get_by_path
+- name: list_pages
+  description: List website page resources.
+  source_operation: openapi/orakl-website-openapi-original.json#page_get_collection
+- name: list_nodes_sources
+  description: List CMS node-source content records.
+  source_operation: openapi/orakl-website-openapi-original.json#api_nodes_sources_get_collection
+- name: list_tags
+  description: List taxonomy tags.
+  source_operation: openapi/orakl-website-openapi-original.json#api_tags_get_collection
+- name: list_folders
+  description: List content folders.
+  source_operation: openapi/orakl-website-openapi-original.json#api_folders_get_collection
+- name: get_folder
+  description: Get a single folder by id.
+  source_operation: openapi/orakl-website-openapi-original.json#api_folders_id_get
+- name: list_translations
+  description: List available content translations/locales.
+  source_operation: openapi/orakl-website-openapi-original.json#api_translations_get_collection
+- name: get_custom_form_definition
+  description: Get the definition of a custom form.
+  source_operation: openapi/orakl-website-openapi-original.json#api_custom_forms_item_definition
+- name: submit_custom_form
+  description: Submit a custom form.
+  source_operation: openapi/orakl-website-openapi-original.json#api_custom_forms_item_post
+- name: get_token
+  description: Obtain a JWT bearer token from username/password.
+  source_operation: openapi/orakl-website-openapi-original.json#login_check_post

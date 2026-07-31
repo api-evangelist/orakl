@@ -1,0 +1,54 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/orakl-website-openapi-original.json
+notes: >-
+  Entity graph derived from the Orakl Oncology public website API (API Platform /
+  Roadiz headless CMS). Core content entities are node-sources organized into a
+  folder tree and classified by tags; pages and web-responses are resolved by
+  path. 82 component schemas back these resources.
+entities:
+- name: Page
+  operations: [page_get_collection, page_get_by_path]
+  description: A website page resource; resolvable as a collection or by path.
+- name: NodesSources
+  operations: [api_nodes_sources_get_collection]
+  description: Roadiz node-source content records (the CMS content backbone).
+- name: Tag
+  operations: [api_tags_get_collection]
+  description: Taxonomy tags used to classify content.
+- name: Folder
+  operations: [api_folders_get_collection, api_folders_id_get]
+  description: Hierarchical folders grouping documents/content.
+- name: Translation
+  operations: [api_translations_get_collection]
+  description: Available content locales/translations.
+- name: CommonContent
+  operations: [getCommonContent]
+  description: Shared/global site content (header, footer, common blocks).
+- name: WebResponse
+  operations: [page_get_by_path]
+  description: The composed response for a given front-end path.
+- name: CustomForm
+  operations: [api_custom_forms_item_definition, api_custom_forms_item_post]
+  description: Definition and submission endpoint for site custom forms.
+relationships:
+- from: NodesSources
+  to: Folder
+  type: belongs_to
+  via: folder
+- from: NodesSources
+  to: Tag
+  type: has_many
+  via: tags
+- from: NodesSources
+  to: Translation
+  type: belongs_to
+  via: translation
+- from: Folder
+  to: Folder
+  type: has_many
+  via: children
+- from: WebResponse
+  to: Page
+  type: has_one
+  via: path

@@ -1,0 +1,21 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Orakl Oncology Public Website API
+  version: 1.0.0
+extends: openapi/orakl-website-openapi-original.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: orakl
+    x-apievangelist-standards:
+    - openapi-3.1
+    - json-ld
+    - hydra
+    - rfc9457-problem-details
+    - jwt-bearer
+    x-apievangelist-auth: jwt-bearer
+    x-apievangelist-pagination: page-number
+    x-apievangelist-notes: >-
+      API Platform / Roadiz headless-CMS surface powering orakl-oncology.com.
+      Read-mostly Hydra + JSON-LD; JWT token endpoint at POST /api/token; sparse
+      fieldsets via properties[]; errors as application/problem+json.

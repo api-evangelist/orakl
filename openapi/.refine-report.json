@@ -1,0 +1,30 @@
+{
+  "provider": "orakl",
+  "sources": [
+    "orakl-commoncontent-api-openapi.yml",
+    "orakl-customform-api-openapi.yml",
+    "orakl-folder-api-openapi.yml",
+    "orakl-login-check-api-openapi.yml",
+    "orakl-nodessources-api-openapi.yml",
+    "orakl-page-api-openapi.yml",
+    "orakl-tag-api-openapi.yml",
+    "orakl-translation-api-openapi.yml",
+    "orakl-webresponse-api-openapi.yml"
+  ],
+  "outputs": [
+    "orakl-commoncontent-api-openapi.yml",
+    "orakl-customform-api-openapi.yml",
+    "orakl-folder-api-openapi.yml",
+    "orakl-login-check-api-openapi.yml",
+    "orakl-nodessources-api-openapi.yml",
+    "orakl-page-api-openapi.yml",
+    "orakl-tag-api-openapi.yml",
+    "orakl-translation-api-openapi.yml",
+    "orakl-webresponse-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

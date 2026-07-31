@@ -1,0 +1,30 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/orakl-website-openapi-original.json
+notes: >-
+  Cross-cutting standards conformance for the Orakl Oncology public website API,
+  derived from the OpenAPI (API Platform / Roadiz). No published compliance
+  program was found, so no Compliance pointer is emitted.
+standards:
+- id: openapi-3.1
+  conforms: true
+  evidence: 'Spec declares openapi 3.1.0'
+- id: json-ld
+  conforms: true
+  evidence: 'Responses served as application/ld+json'
+- id: hydra
+  conforms: true
+  evidence: 'Hydra apiDocumentation link header; hydra:member/totalItems/view collections'
+- id: rfc9457-problem-details
+  conforms: true
+  evidence: 'Errors returned as application/problem+json'
+- id: jwt-bearer
+  conforms: true
+  evidence: 'securityScheme JWT: http bearer, bearerFormat JWT; POST /api/token'
+- id: oauth2
+  conforms: false
+- id: openid-connect
+  conforms: false
+- id: json-api
+  conforms: false
+  evidence: 'Uses Hydra/JSON-LD, not JSON:API'
