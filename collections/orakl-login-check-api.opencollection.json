@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Orakl Oncology public website CommonContent Login Check API",
+    "version": "1.0.7"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Login Check",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Creates a user token.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/token",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a user token."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

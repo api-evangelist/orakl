@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Orakl Oncology public website CommonContent WebResponse API",
+    "version": "1.0.7"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "WebResponse",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieves a WebResponse resource.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/web_response_by_path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "query",
+                "description": "Resource path, or `/` for home page"
+              },
+              {
+                "name": "_preview",
+                "value": "1",
+                "type": "query",
+                "description": "Enables preview mode (requires a valid bearer JWT token)"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieves a WebResponse resource."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,388 @@
+{
+  "item": [
+    {
+      "id": "deea11e7-0c33-459d-a48b-f84dbd1bb58c",
+      "name": "Translation",
+      "description": {
+        "content": "Translations describe language locales to be used by Nodes,\nTags, UrlAliases and Documents.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "612dbb18-a101-48e1-9cfd-9c3ef3bd93ca",
+          "name": "Retrieves the collection of Translation resources.",
+          "request": {
+            "name": "Retrieves the collection of Translation resources.",
+            "description": {
+              "content": "Retrieves the collection of Translation resources.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "translations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The collection page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "itemsPerPage",
+                  "value": "15",
+                  "description": "The number of items per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "properties[]",
+                  "value": "<string>,<string>",
+                  "description": "Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty}"
+                },
+                {
+                  "disabled": false,
+                  "key": "order[createdAt]",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "order[updatedAt]",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "order[locale]",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "order[available]",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "order[defaultTranslation]",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "available",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "defaultTranslation",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "locale[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "locale[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "name[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "name[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "_preview",
+                  "value": "<boolean>",
+                  "description": "Enables preview mode (requires a valid bearer JWT token)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a19e0890-59cc-4b58-b315-1c248e88b8ac",
+              "name": "Translation collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "translations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "itemsPerPage",
+                      "value": "15"
+                    },
+                    {
+                      "key": "properties[]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "order[createdAt]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order[updatedAt]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order[locale]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order[available]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order[defaultTranslation]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "available",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "defaultTranslation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_preview",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "{\n  \"hydra:member\": [\n    {\n      \"@id\": \"string\",\n      \"@type\": \"string\",\n      \"name\": \"French\",\n      \"@context\": \"string\",\n      \"defaultTranslation\": false,\n      \"available\": true,\n      \"locale\": \"fr\"\n    },\n    {\n      \"@id\": \"string\",\n      \"@type\": \"string\",\n      \"name\": \"French\",\n      \"@context\": \"string\",\n      \"defaultTranslation\": false,\n      \"available\": true,\n      \"locale\": \"fr\"\n    }\n  ],\n  \"hydra:totalItems\": 2422,\n  \"hydra:search\": {\n    \"@type\": \"string\",\n    \"hydra:template\": \"string\",\n    \"hydra:variableRepresentation\": \"string\",\n    \"hydra:mapping\": [\n      {\n        \"@type\": \"string\",\n        \"variable\": \"string\",\n        \"property\": \"string\",\n        \"required\": true\n      },\n      {\n        \"@type\": \"string\",\n        \"variable\": \"string\",\n        \"property\": \"string\",\n        \"required\": false\n      }\n    ]\n  },\n  \"hydra:view\": {\n    \"@id\": \"string\",\n    \"@type\": \"string\",\n    \"hydra:first\": \"string\",\n    \"hydra:last\": \"string\",\n    \"hydra:previous\": \"string\",\n    \"hydra:next\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "219af454-9589-462a-aa30-ad85271c7afe",
+              "name": "Invalid JWT Token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "translations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "itemsPerPage",
+                      "value": "15"
+                    },
+                    {
+                      "key": "properties[]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "order[createdAt]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order[updatedAt]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order[locale]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order[available]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order[defaultTranslation]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "available",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "defaultTranslation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_preview",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "dac5caf4-a489-4905-9832-f438970d42f4",
+    "name": "Orakl Oncology public website CommonContent Translation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Orakl Oncology public website API",
+      "type": "text/plain"
+    }
+  }
+}

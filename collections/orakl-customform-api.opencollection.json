@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Orakl Oncology public website CommonContent CustomForm API",
+    "version": "1.0.7"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CustomForm",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieves a CustomForm resource.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/custom_forms/:id/definition",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "CustomForm identifier"
+              },
+              {
+                "name": "_preview",
+                "value": "1",
+                "type": "query",
+                "description": "Enables preview mode (requires a valid bearer JWT token)"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieves a CustomForm resource."
+        },
+        {
+          "info": {
+            "name": "Creates a CustomForm resource.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/custom_forms/:id/post",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a CustomForm resource."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

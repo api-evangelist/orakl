@@ -1,0 +1,1205 @@
+{
+  "item": [
+    {
+      "id": "a5d814de-f8c4-4154-b42b-050f1171a9c1",
+      "name": "NodesSources",
+      "description": {
+        "content": "NodesSources store Node content according to a translation and a NodeType.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fcf3dcea-43ff-4972-a11a-953708b5f26d",
+          "name": "Retrieves the collection of NodesSources resources.",
+          "request": {
+            "name": "Retrieves the collection of NodesSources resources.",
+            "description": {
+              "content": "Retrieves the collection of NodesSources resources.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "nodes_sources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The collection page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "itemsPerPage",
+                  "value": "15",
+                  "description": "The number of items per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "properties[]",
+                  "value": "<string>,<string>",
+                  "description": "Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty}"
+                },
+                {
+                  "disabled": false,
+                  "key": "reachable",
+                  "value": "<string>",
+                  "description": "Filter items when their node-type is reachable or not."
+                },
+                {
+                  "disabled": false,
+                  "key": "node.nodeType.reachable",
+                  "value": "<string>",
+                  "description": "Filter items when their node-type is reachable or not. **Deprecated: Use *reachable* instead.**"
+                },
+                {
+                  "disabled": false,
+                  "key": "publishable",
+                  "value": "<string>",
+                  "description": "Filter items when their node-type is publishable or not."
+                },
+                {
+                  "disabled": false,
+                  "key": "node.nodeType.publishable",
+                  "value": "<string>",
+                  "description": "Filter items when their node-type is publishable or not. **Deprecated: Use *publishable* instead.**"
+                },
+                {
+                  "disabled": false,
+                  "key": "_locale",
+                  "value": "<string>",
+                  "description": "Filter items with translation locale (en)."
+                },
+                {
+                  "disabled": false,
+                  "key": "tagGroup[]",
+                  "value": "<string>",
+                  "description": "Filter entities by tag name groups (comma separated). Inside groups filter use OR, between each groups filter use AND."
+                },
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "metaTitle",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "metaDescription",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.id",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.id[]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.id[]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.nodeName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.nodeName[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.nodeName[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.parent",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.parent[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.parent[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.parent.nodeName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.parent.nodeName[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.parent.nodeName[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.nodesTags.tag",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.nodesTags.tag[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.nodesTags.tag[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.nodesTags.tag.tagName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.nodesTags.tag.tagName[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.nodesTags.tag.tagName[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.nodeTypeName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.nodeTypeName[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.nodeTypeName[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "translation.id",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "translation.id[]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "translation.id[]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "translation.locale",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "translation.locale[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "translation.locale[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "publishedAt[before]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "publishedAt[strictly_before]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "publishedAt[after]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "publishedAt[strictly_after]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.createdAt[before]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.createdAt[strictly_before]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.createdAt[after]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.createdAt[strictly_after]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.updatedAt[before]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.updatedAt[strictly_before]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.updatedAt[after]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.updatedAt[strictly_after]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order[publishedAt]",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "order[node.position]",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "order[node.createdAt]",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "order[node.updatedAt]",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "publishedAt[archive]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "noIndex",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.visible",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.home",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.position",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.position[]",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.position[]",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.position[between]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.position[gt]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.position[gte]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.position[lt]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "node.position[lte]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "not[node.nodeTypeName]",
+                  "value": "<string>",
+                  "description": "Filter items that are not equal."
+                },
+                {
+                  "disabled": false,
+                  "key": "not[node.nodeTypeName][]",
+                  "value": "<string>",
+                  "description": "Filter items that are not equal."
+                },
+                {
+                  "disabled": false,
+                  "key": "not[node.id]",
+                  "value": "<string>",
+                  "description": "Filter items that are not equal."
+                },
+                {
+                  "disabled": false,
+                  "key": "not[node.id][]",
+                  "value": "<string>",
+                  "description": "Filter items that are not equal."
+                },
+                {
+                  "disabled": false,
+                  "key": "not[node.nodesTags.tag.tagName]",
+                  "value": "<string>",
+                  "description": "Filter items that are not equal."
+                },
+                {
+                  "disabled": false,
+                  "key": "not[node.nodesTags.tag.tagName][]",
+                  "value": "<string>",
+                  "description": "Filter items that are not equal."
+                },
+                {
+                  "disabled": false,
+                  "key": "intersect[node.nodesTags.tag]",
+                  "value": "<string>",
+                  "description": "Discriminate an existing filter with additional filtering value using a new inner join."
+                },
+                {
+                  "disabled": false,
+                  "key": "intersect[node.nodesTags.tag][]",
+                  "value": "<string>",
+                  "description": "Discriminate an existing filter with additional filtering value using a new inner join."
+                },
+                {
+                  "disabled": false,
+                  "key": "intersect[node.nodesTags.tag.tagName]",
+                  "value": "<string>",
+                  "description": "Discriminate an existing filter with additional filtering value using a new inner join."
+                },
+                {
+                  "disabled": false,
+                  "key": "intersect[node.nodesTags.tag.tagName][]",
+                  "value": "<string>",
+                  "description": "Discriminate an existing filter with additional filtering value using a new inner join."
+                },
+                {
+                  "disabled": false,
+                  "key": "_preview",
+                  "value": "<boolean>",
+                  "description": "Enables preview mode (requires a valid bearer JWT token)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1da16070-8719-4b7f-8256-c1c5c5a7a86b",
+              "name": "NodesSources collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "nodes_sources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "itemsPerPage",
+                      "value": "15"
+                    },
+                    {
+                      "key": "properties[]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "reachable",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.nodeType.reachable",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publishable",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.nodeType.publishable",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagGroup[]",
+                      "value": "tag-1,tag-2"
+                    },
+                    {
+                      "key": "tagGroup[]",
+                      "value": "tag-3,tag-4"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metaTitle",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metaDescription",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "node.id[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "node.id[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "node.nodeName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.nodeName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.nodeName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.parent",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.parent[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.parent[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.parent.nodeName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.parent.nodeName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.parent.nodeName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.nodesTags.tag",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.nodesTags.tag[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.nodesTags.tag[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.nodesTags.tag.tagName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.nodesTags.tag.tagName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.nodesTags.tag.tagName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.nodeTypeName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.nodeTypeName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.nodeTypeName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "translation.id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "translation.id[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "translation.id[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "translation.locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "translation.locale[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "translation.locale[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publishedAt[before]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publishedAt[strictly_before]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publishedAt[after]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publishedAt[strictly_after]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.createdAt[before]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.createdAt[strictly_before]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.createdAt[after]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.createdAt[strictly_after]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.updatedAt[before]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.updatedAt[strictly_before]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.updatedAt[after]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.updatedAt[strictly_after]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order[publishedAt]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order[node.position]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order[node.createdAt]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order[node.updatedAt]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "publishedAt[archive]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "noIndex",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "node.visible",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "node.home",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "node.position",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "node.position[]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "node.position[]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "node.position[between]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.position[gt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.position[gte]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.position[lt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.position[lte]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "not[node.nodeTypeName]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "not[node.nodeTypeName][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "not[node.id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "not[node.id][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "not[node.nodesTags.tag.tagName]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "not[node.nodesTags.tag.tagName][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "intersect[node.nodesTags.tag]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "intersect[node.nodesTags.tag][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "intersect[node.nodesTags.tag.tagName]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "intersect[node.nodesTags.tag.tagName][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_preview",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "{\n  \"hydra:member\": [\n    {\n      \"@id\": \"string\",\n      \"@type\": \"string\",\n      \"node\": {\n        \"@id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"@type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"nodeName\": \"this-is-a-node-name\",\n        \"@context\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"visible\": true,\n        \"createdAt\": \"1982-01-28T19:34:33.988Z\",\n        \"updatedAt\": \"1954-01-20T06:42:52.495Z\",\n        \"tags\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"translation\": {},\n      \"@context\": \"string\",\n      \"title\": \"This is a title\",\n      \"publishedAt\": \"1964-02-13T18:37:52.022Z\",\n      \"slug\": \"string\"\n    },\n    {\n      \"@id\": \"string\",\n      \"@type\": \"string\",\n      \"node\": {\n        \"@id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"@type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"nodeName\": \"this-is-a-node-name\",\n        \"@context\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"visible\": true,\n        \"createdAt\": \"1955-05-18T23:48:59.244Z\",\n        \"updatedAt\": \"1983-10-30T16:17:47.330Z\",\n        \"tags\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"translation\": {},\n      \"@context\": \"string\",\n      \"title\": \"This is a title\",\n      \"publishedAt\": \"2015-02-16T05:13:45.289Z\",\n      \"slug\": \"string\"\n    }\n  ],\n  \"hydra:totalItems\": 9451,\n  \"hydra:search\": {\n    \"@type\": \"string\",\n    \"hydra:template\": \"string\",\n    \"hydra:variableRepresentation\": \"string\",\n    \"hydra:mapping\": [\n      {\n        \"@type\": \"string\",\n        \"variable\": \"string\",\n        \"property\": \"string\",\n        \"required\": false\n      },\n      {\n        \"@type\": \"string\",\n        \"variable\": \"string\",\n        \"property\": \"string\",\n        \"required\": false\n      }\n    ]\n  },\n  \"hydra:view\": {\n    \"@id\": \"string\",\n    \"@type\": \"string\",\n    \"hydra:first\": \"string\",\n    \"hydra:last\": \"string\",\n    \"hydra:previous\": \"string\",\n    \"hydra:next\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "36363d05-66bb-4546-a329-61f564a82d30",
+              "name": "Invalid JWT Token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "nodes_sources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "itemsPerPage",
+                      "value": "15"
+                    },
+                    {
+                      "key": "properties[]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "reachable",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.nodeType.reachable",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publishable",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.nodeType.publishable",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagGroup[]",
+                      "value": "tag-1,tag-2"
+                    },
+                    {
+                      "key": "tagGroup[]",
+                      "value": "tag-3,tag-4"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metaTitle",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metaDescription",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "node.id[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "node.id[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "node.nodeName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.nodeName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.nodeName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.parent",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.parent[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.parent[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.parent.nodeName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.parent.nodeName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.parent.nodeName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.nodesTags.tag",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.nodesTags.tag[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.nodesTags.tag[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.nodesTags.tag.tagName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.nodesTags.tag.tagName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.nodesTags.tag.tagName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.nodeTypeName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.nodeTypeName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.nodeTypeName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "translation.id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "translation.id[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "translation.id[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "translation.locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "translation.locale[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "translation.locale[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publishedAt[before]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publishedAt[strictly_before]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publishedAt[after]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publishedAt[strictly_after]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.createdAt[before]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.createdAt[strictly_before]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.createdAt[after]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.createdAt[strictly_after]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.updatedAt[before]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.updatedAt[strictly_before]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.updatedAt[after]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.updatedAt[strictly_after]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order[publishedAt]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order[node.position]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order[node.createdAt]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order[node.updatedAt]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "publishedAt[archive]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "noIndex",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "node.visible",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "node.home",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "node.position",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "node.position[]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "node.position[]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "node.position[between]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.position[gt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.position[gte]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.position[lt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "node.position[lte]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "not[node.nodeTypeName]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "not[node.nodeTypeName][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "not[node.id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "not[node.id][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "not[node.nodesTags.tag.tagName]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "not[node.nodesTags.tag.tagName][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "intersect[node.nodesTags.tag]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "intersect[node.nodesTags.tag][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "intersect[node.nodesTags.tag.tagName]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "intersect[node.nodesTags.tag.tagName][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_preview",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7ac575bb-61c0-4513-93aa-65b9f946662e",
+    "name": "Orakl Oncology public website CommonContent NodesSources API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Orakl Oncology public website API",
+      "type": "text/plain"
+    }
+  }
+}

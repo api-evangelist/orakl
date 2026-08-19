@@ -1,0 +1,226 @@
+{
+  "item": [
+    {
+      "id": "eb2c188a-cb03-45a6-9958-5669855780d6",
+      "name": "CommonContent",
+      "description": {
+        "content": "Resource 'CommonContent' operations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "01fb31aa-b497-475e-8cf2-7f1d93bea5ce",
+          "name": "Retrieves a CommonContent resource.",
+          "request": {
+            "name": "Retrieves a CommonContent resource.",
+            "description": {
+              "content": "Retrieves a CommonContent resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "common_content"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_preview",
+                  "value": "<boolean>",
+                  "description": "Enables preview mode (requires a valid bearer JWT token)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9ae7b96e-3a8d-4273-ba67-005472f3536d",
+              "name": "CommonContent resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "common_content"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_preview",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "{\n  \"@id\": \"string\",\n  \"@type\": \"string\",\n  \"@context\": \"string\",\n  \"home\": {\n    \"@id\": \"string\",\n    \"@type\": \"string\",\n    \"node\": {\n      \"@id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"@type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"nodeName\": \"this-is-a-node-name\",\n      \"@context\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"visible\": true,\n      \"tags\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    \"translation\": {},\n    \"@context\": \"string\",\n    \"title\": \"This is a title\",\n    \"publishedAt\": \"2023-05-22T09:19:32.428Z\",\n    \"slug\": \"string\"\n  },\n  \"errorPage\": {},\n  \"head\": {},\n  \"footers\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c95d9a69-e40d-466b-a824-b642f419af3f",
+              "name": "Invalid JWT Token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "common_content"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_preview",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f62c1a48-3ebf-4762-b4db-adb0d45963ad",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "common_content"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_preview",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "{\n  \"@id\": \"string\",\n  \"@type\": \"string\",\n  \"@context\": \"string\",\n  \"title\": \"string\",\n  \"detail\": \"string\",\n  \"status\": 404,\n  \"instance\": \"string\",\n  \"type\": \"string\",\n  \"description\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d250ecc4-5c44-4b01-b05f-0d9ad15ce41a",
+    "name": "Orakl Oncology public website CommonContent API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Orakl Oncology public website API",
+      "type": "text/plain"
+    }
+  }
+}

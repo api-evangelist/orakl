@@ -1,0 +1,709 @@
+{
+  "item": [
+    {
+      "id": "61c50b36-347e-4563-a08d-d27fe1caf378",
+      "name": "Folder",
+      "description": {
+        "content": "Folders entity represent a directory on server with datetime and naming.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fd596bf4-a532-49fe-aa23-aab2810b0aad",
+          "name": "Retrieves the collection of Folder resources.",
+          "request": {
+            "name": "Retrieves the collection of Folder resources.",
+            "description": {
+              "content": "Retrieves the collection of Folder resources.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "folders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The collection page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "itemsPerPage",
+                  "value": "15",
+                  "description": "The number of items per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "properties[]",
+                  "value": "<string>,<string>",
+                  "description": "Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty}"
+                },
+                {
+                  "disabled": false,
+                  "key": "order[position]",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "order[createdAt]",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "order[updatedAt]",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "parent.id",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "parent.id[]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "parent.id[]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "parent.folderName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "parent.folderName[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "parent.folderName[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "folderName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "visible",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "locked",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "position[between]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "position[gt]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "position[gte]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "position[lt]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "position[lte]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "position",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "position[]",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "position[]",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "_preview",
+                  "value": "<boolean>",
+                  "description": "Enables preview mode (requires a valid bearer JWT token)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "eae33ade-a4a1-4436-82ed-f40c68cfc256",
+              "name": "Folder collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "folders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "itemsPerPage",
+                      "value": "15"
+                    },
+                    {
+                      "key": "properties[]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "order[position]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order[createdAt]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order[updatedAt]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "parent.id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parent.id[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parent.id[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parent.folderName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parent.folderName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parent.folderName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "folderName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "visible",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "locked",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "position[between]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "position[gt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "position[gte]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "position[lt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "position[lte]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "position",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "position[]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "position[]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "_preview",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "{\n  \"hydra:member\": [\n    {\n      \"@id\": \"string\",\n      \"@type\": \"string\",\n      \"slug\": \"\",\n      \"@context\": \"string\",\n      \"color\": \"#000000\",\n      \"visible\": true,\n      \"locked\": false,\n      \"name\": \"string\"\n    },\n    {\n      \"@id\": \"string\",\n      \"@type\": \"string\",\n      \"slug\": \"\",\n      \"@context\": \"string\",\n      \"color\": \"#000000\",\n      \"visible\": true,\n      \"locked\": false,\n      \"name\": \"string\"\n    }\n  ],\n  \"hydra:totalItems\": 5367,\n  \"hydra:search\": {\n    \"@type\": \"string\",\n    \"hydra:template\": \"string\",\n    \"hydra:variableRepresentation\": \"string\",\n    \"hydra:mapping\": [\n      {\n        \"@type\": \"string\",\n        \"variable\": \"string\",\n        \"property\": \"string\",\n        \"required\": true\n      },\n      {\n        \"@type\": \"string\",\n        \"variable\": \"string\",\n        \"property\": \"string\",\n        \"required\": true\n      }\n    ]\n  },\n  \"hydra:view\": {\n    \"@id\": \"string\",\n    \"@type\": \"string\",\n    \"hydra:first\": \"string\",\n    \"hydra:last\": \"string\",\n    \"hydra:previous\": \"string\",\n    \"hydra:next\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0cfec592-7ddb-4c1d-9616-89c17042790f",
+              "name": "Invalid JWT Token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "folders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "itemsPerPage",
+                      "value": "15"
+                    },
+                    {
+                      "key": "properties[]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "order[position]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order[createdAt]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order[updatedAt]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "parent.id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parent.id[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parent.id[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parent.folderName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parent.folderName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parent.folderName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "folderName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "visible",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "locked",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "position[between]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "position[gt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "position[gte]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "position[lt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "position[lte]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "position",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "position[]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "position[]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "_preview",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "854b3495-4662-421b-a54f-59506babffc8",
+          "name": "Retrieves a Folder resource.",
+          "request": {
+            "name": "Retrieves a Folder resource.",
+            "description": {
+              "content": "Retrieves a Folder resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "folders",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_preview",
+                  "value": "<boolean>",
+                  "description": "Enables preview mode (requires a valid bearer JWT token)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Folder identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "53293af4-21c2-4e88-b035-d79b63b43f47",
+              "name": "Folder resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "folders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_preview",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Folder identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "{\n  \"@id\": \"string\",\n  \"@type\": \"string\",\n  \"slug\": \"\",\n  \"@context\": \"string\",\n  \"color\": \"#000000\",\n  \"visible\": true,\n  \"locked\": false,\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "374c151d-c0a0-4c7e-b0b2-61559548ddf6",
+              "name": "Invalid JWT Token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "folders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_preview",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Folder identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1fda0ad9-5053-4cdf-8dc4-8884f211c3ca",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "folders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_preview",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Folder identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "{\n  \"@id\": \"string\",\n  \"@type\": \"string\",\n  \"@context\": \"string\",\n  \"title\": \"string\",\n  \"detail\": \"string\",\n  \"status\": 404,\n  \"instance\": \"string\",\n  \"type\": \"string\",\n  \"description\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "92847e85-b37c-4485-b1c9-38c0b8b7ba76",
+    "name": "Orakl Oncology public website CommonContent Folder API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Orakl Oncology public website API",
+      "type": "text/plain"
+    }
+  }
+}

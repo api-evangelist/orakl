@@ -1,0 +1,308 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Orakl Oncology public website CommonContent Tag API",
+    "version": "1.0.7"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tag",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieves the collection of Tag resources.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/tags",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The collection page number"
+              },
+              {
+                "name": "itemsPerPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of items per page"
+              },
+              {
+                "name": "properties[]",
+                "value": "",
+                "type": "query",
+                "description": "Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty}"
+              },
+              {
+                "name": "nodesTags",
+                "value": "",
+                "type": "query",
+                "description": "Filter tags if they are related to any node or not."
+              },
+              {
+                "name": "nodesTags[visible]",
+                "value": "",
+                "type": "query",
+                "description": "Filter tags if they are related to any visible node."
+              },
+              {
+                "name": "nodesTags[nodeTypeName]",
+                "value": "",
+                "type": "query",
+                "description": "Filter tags if they are related to any node of `nodeTypeName`."
+              },
+              {
+                "name": "nodesTags[nodeTypeName][]",
+                "value": "",
+                "type": "query",
+                "description": "Filter tags if they are related to any node of `nodeTypeName`."
+              },
+              {
+                "name": "nodesTags[tagName]",
+                "value": "",
+                "type": "query",
+                "description": "Filter tags if they are related to any node which is linked to another `tagName`."
+              },
+              {
+                "name": "nodesTags[tagName][]",
+                "value": "",
+                "type": "query",
+                "description": "Filter tags if they are related to any node which is linked to another `tagName`."
+              },
+              {
+                "name": "nodesTags[nodeName]",
+                "value": "",
+                "type": "query",
+                "description": "Filter tags if they are related to a node with `nodeName`."
+              },
+              {
+                "name": "nodesTags[nodeName][]",
+                "value": "",
+                "type": "query",
+                "description": "Filter tags if they are related to a node with `nodeName`."
+              },
+              {
+                "name": "nodesTags[parentNodeName]",
+                "value": "",
+                "type": "query",
+                "description": "Filter tags if they are related to a node whom parent-node is `parentNodeName`."
+              },
+              {
+                "name": "nodesTags[parentNodeName][]",
+                "value": "",
+                "type": "query",
+                "description": "Filter tags if they are related to a node whom parent-node is `parentNodeName`."
+              },
+              {
+                "name": "order[tagName]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order[position]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order[createdAt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order[updatedAt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "parent.id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "parent.id[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "parent.tagName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "parent.tagName[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tagName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nodesTags.node",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nodesTags.node[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nodesTags.node.nodeName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nodesTags.node.nodeName[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nodesTags.node.parent",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nodesTags.node.parent[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nodesTags.node.parent.nodeName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nodesTags.node.parent.nodeName[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nodesTags.node.nodeTypeName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nodesTags.node.nodeTypeName[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nodesTags.node.nodesTags.tag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nodesTags.node.nodesTags.tag[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nodesTags.node.nodesTags.tag.tagName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nodesTags.node.nodesTags.tag.tagName[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "not[parent.id]",
+                "value": "",
+                "type": "query",
+                "description": "Filter items that are not equal."
+              },
+              {
+                "name": "not[parent.id][]",
+                "value": "",
+                "type": "query",
+                "description": "Filter items that are not equal."
+              },
+              {
+                "name": "not[parent.tagName]",
+                "value": "",
+                "type": "query",
+                "description": "Filter items that are not equal."
+              },
+              {
+                "name": "not[parent.tagName][]",
+                "value": "",
+                "type": "query",
+                "description": "Filter items that are not equal."
+              },
+              {
+                "name": "visible",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "locked",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nodesTags.node.visible",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "position[between]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "position[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "position[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "position[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "position[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "position",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "position[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "_preview",
+                "value": "1",
+                "type": "query",
+                "description": "Enables preview mode (requires a valid bearer JWT token)"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieves the collection of Tag resources."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

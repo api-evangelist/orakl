@@ -1,0 +1,173 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Orakl Oncology public website CommonContent Folder API",
+    "version": "1.0.7"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Folder",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieves the collection of Folder resources.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/folders",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The collection page number"
+              },
+              {
+                "name": "itemsPerPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of items per page"
+              },
+              {
+                "name": "properties[]",
+                "value": "",
+                "type": "query",
+                "description": "Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty}"
+              },
+              {
+                "name": "order[position]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order[createdAt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order[updatedAt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "parent.id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "parent.id[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "parent.folderName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "parent.folderName[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "folderName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "visible",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "locked",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "position[between]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "position[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "position[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "position[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "position[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "position",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "position[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "_preview",
+                "value": "1",
+                "type": "query",
+                "description": "Enables preview mode (requires a valid bearer JWT token)"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieves the collection of Folder resources."
+        },
+        {
+          "info": {
+            "name": "Retrieves a Folder resource.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/folders/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Folder identifier"
+              },
+              {
+                "name": "_preview",
+                "value": "1",
+                "type": "query",
+                "description": "Enables preview mode (requires a valid bearer JWT token)"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieves a Folder resource."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

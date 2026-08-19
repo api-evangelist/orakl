@@ -1,0 +1,974 @@
+{
+  "item": [
+    {
+      "id": "9f91ff14-353b-4d35-aac2-2b8d538ad158",
+      "name": "Tag",
+      "description": {
+        "content": "Tags are hierarchical entities used to qualify Nodes.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "61b27a1a-ddbb-4dbd-9d99-b619ba90550d",
+          "name": "Retrieves the collection of Tag resources.",
+          "request": {
+            "name": "Retrieves the collection of Tag resources.",
+            "description": {
+              "content": "Retrieves the collection of Tag resources.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tags"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The collection page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "itemsPerPage",
+                  "value": "15",
+                  "description": "The number of items per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "properties[]",
+                  "value": "<string>,<string>",
+                  "description": "Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty}"
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags",
+                  "value": "<boolean>",
+                  "description": "Filter tags if they are related to any node or not."
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags[visible]",
+                  "value": "<boolean>",
+                  "description": "Filter tags if they are related to any visible node."
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags[nodeTypeName]",
+                  "value": "<string>",
+                  "description": "Filter tags if they are related to any node of `nodeTypeName`."
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags[nodeTypeName][]",
+                  "value": "<string>",
+                  "description": "Filter tags if they are related to any node of `nodeTypeName`."
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags[tagName]",
+                  "value": "<string>",
+                  "description": "Filter tags if they are related to any node which is linked to another `tagName`."
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags[tagName][]",
+                  "value": "<string>",
+                  "description": "Filter tags if they are related to any node which is linked to another `tagName`."
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags[nodeName]",
+                  "value": "<string>",
+                  "description": "Filter tags if they are related to a node with `nodeName`."
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags[nodeName][]",
+                  "value": "<string>",
+                  "description": "Filter tags if they are related to a node with `nodeName`."
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags[parentNodeName]",
+                  "value": "<string>",
+                  "description": "Filter tags if they are related to a node whom parent-node is `parentNodeName`."
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags[parentNodeName][]",
+                  "value": "<string>",
+                  "description": "Filter tags if they are related to a node whom parent-node is `parentNodeName`."
+                },
+                {
+                  "disabled": false,
+                  "key": "order[tagName]",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "order[position]",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "order[createdAt]",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "order[updatedAt]",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "parent.id",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "parent.id[]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "parent.id[]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "parent.tagName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "parent.tagName[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "parent.tagName[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "tagName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags.node",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags.node[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags.node[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags.node.nodeName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags.node.nodeName[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags.node.nodeName[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags.node.parent",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags.node.parent[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags.node.parent[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags.node.parent.nodeName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags.node.parent.nodeName[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags.node.parent.nodeName[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags.node.nodeTypeName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags.node.nodeTypeName[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags.node.nodeTypeName[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags.node.nodesTags.tag",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags.node.nodesTags.tag[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags.node.nodesTags.tag[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags.node.nodesTags.tag.tagName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags.node.nodesTags.tag.tagName[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags.node.nodesTags.tag.tagName[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "not[parent.id]",
+                  "value": "<string>",
+                  "description": "Filter items that are not equal."
+                },
+                {
+                  "disabled": false,
+                  "key": "not[parent.id][]",
+                  "value": "<string>",
+                  "description": "Filter items that are not equal."
+                },
+                {
+                  "disabled": false,
+                  "key": "not[parent.tagName]",
+                  "value": "<string>",
+                  "description": "Filter items that are not equal."
+                },
+                {
+                  "disabled": false,
+                  "key": "not[parent.tagName][]",
+                  "value": "<string>",
+                  "description": "Filter items that are not equal."
+                },
+                {
+                  "disabled": false,
+                  "key": "visible",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "locked",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nodesTags.node.visible",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "position[between]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "position[gt]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "position[gte]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "position[lt]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "position[lte]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "position",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "position[]",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "position[]",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "_preview",
+                  "value": "<boolean>",
+                  "description": "Enables preview mode (requires a valid bearer JWT token)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0a5866d8-a534-4dc5-9a77-ca882d92b8a1",
+              "name": "Tag collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tags"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "itemsPerPage",
+                      "value": "15"
+                    },
+                    {
+                      "key": "properties[]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "nodesTags",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "nodesTags[visible]",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "nodesTags[nodeTypeName]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags[nodeTypeName][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags[tagName]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags[tagName][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags[nodeName]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags[nodeName][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags[parentNodeName]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags[parentNodeName][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order[tagName]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order[position]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order[createdAt]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order[updatedAt]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "parent.id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parent.id[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parent.id[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parent.tagName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parent.tagName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parent.tagName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.nodeName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.nodeName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.nodeName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.parent",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.parent[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.parent[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.parent.nodeName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.parent.nodeName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.parent.nodeName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.nodeTypeName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.nodeTypeName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.nodeTypeName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.nodesTags.tag",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.nodesTags.tag[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.nodesTags.tag[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.nodesTags.tag.tagName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.nodesTags.tag.tagName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.nodesTags.tag.tagName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "not[parent.id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "not[parent.id][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "not[parent.tagName]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "not[parent.tagName][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "visible",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "locked",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "nodesTags.node.visible",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "position[between]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "position[gt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "position[gte]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "position[lt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "position[lte]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "position",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "position[]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "position[]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "_preview",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "{\n  \"hydra:member\": [\n    {\n      \"@id\": \"string\",\n      \"@type\": \"string\",\n      \"@context\": \"string\",\n      \"visible\": true,\n      \"slug\": \"this-is-a-tag-name\"\n    },\n    {\n      \"@id\": \"string\",\n      \"@type\": \"string\",\n      \"@context\": \"string\",\n      \"visible\": true,\n      \"slug\": \"this-is-a-tag-name\"\n    }\n  ],\n  \"hydra:totalItems\": 7504,\n  \"hydra:search\": {\n    \"@type\": \"string\",\n    \"hydra:template\": \"string\",\n    \"hydra:variableRepresentation\": \"string\",\n    \"hydra:mapping\": [\n      {\n        \"@type\": \"string\",\n        \"variable\": \"string\",\n        \"property\": \"string\",\n        \"required\": true\n      },\n      {\n        \"@type\": \"string\",\n        \"variable\": \"string\",\n        \"property\": \"string\",\n        \"required\": true\n      }\n    ]\n  },\n  \"hydra:view\": {\n    \"@id\": \"string\",\n    \"@type\": \"string\",\n    \"hydra:first\": \"string\",\n    \"hydra:last\": \"string\",\n    \"hydra:previous\": \"string\",\n    \"hydra:next\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f595ed9e-6014-4644-b9d7-5a53434fb73f",
+              "name": "Invalid JWT Token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tags"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "itemsPerPage",
+                      "value": "15"
+                    },
+                    {
+                      "key": "properties[]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "nodesTags",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "nodesTags[visible]",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "nodesTags[nodeTypeName]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags[nodeTypeName][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags[tagName]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags[tagName][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags[nodeName]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags[nodeName][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags[parentNodeName]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags[parentNodeName][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order[tagName]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order[position]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order[createdAt]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "order[updatedAt]",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "parent.id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parent.id[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parent.id[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parent.tagName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parent.tagName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parent.tagName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.nodeName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.nodeName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.nodeName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.parent",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.parent[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.parent[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.parent.nodeName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.parent.nodeName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.parent.nodeName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.nodeTypeName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.nodeTypeName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.nodeTypeName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.nodesTags.tag",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.nodesTags.tag[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.nodesTags.tag[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.nodesTags.tag.tagName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.nodesTags.tag.tagName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodesTags.node.nodesTags.tag.tagName[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "not[parent.id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "not[parent.id][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "not[parent.tagName]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "not[parent.tagName][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "visible",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "locked",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "nodesTags.node.visible",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "position[between]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "position[gt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "position[gte]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "position[lt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "position[lte]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "position",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "position[]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "position[]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "_preview",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7655a9bb-4bf5-4ac0-8430-0e387fca655e",
+    "name": "Orakl Oncology public website CommonContent Tag API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Orakl Oncology public website API",
+      "type": "text/plain"
+    }
+  }
+}

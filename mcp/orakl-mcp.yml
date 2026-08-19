@@ -2,10 +2,9 @@ generated: '2026-07-20'
 method: derived
 status: candidate
 source: openapi/orakl-website-openapi-original.json
-notes: >-
-  No official hosted/remote MCP server was found for Orakl Oncology. Candidate
-  tool list derived one-to-one from the public website API operations (read-only
-  content endpoints plus the token/custom-form writes). Not an official server.
+notes: No official hosted/remote MCP server was found for Orakl Oncology. Candidate tool list derived
+  one-to-one from the public website API operations (read-only content endpoints plus the token/custom-form
+  writes). Not an official server.
 server:
   name: orakl-website
   transport: http
@@ -43,3 +42,9 @@ tools:
 - name: get_token
   description: Obtain a JWT bearer token from username/password.
   source_operation: openapi/orakl-website-openapi-original.json#login_check_post
+deployment:
+  mode: none
+  verified: derived
+  tools: 11
+  checked: '2026-08-12'
+  source: catalog MCP census

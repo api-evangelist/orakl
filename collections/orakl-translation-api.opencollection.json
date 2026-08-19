@@ -1,0 +1,114 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Orakl Oncology public website CommonContent Translation API",
+    "version": "1.0.7"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Translation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieves the collection of Translation resources.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/translations",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The collection page number"
+              },
+              {
+                "name": "itemsPerPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of items per page"
+              },
+              {
+                "name": "properties[]",
+                "value": "",
+                "type": "query",
+                "description": "Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty}"
+              },
+              {
+                "name": "order[createdAt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order[updatedAt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order[locale]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order[available]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order[defaultTranslation]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "available",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "defaultTranslation",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "locale[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "_preview",
+                "value": "1",
+                "type": "query",
+                "description": "Enables preview mode (requires a valid bearer JWT token)"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieves the collection of Translation resources."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

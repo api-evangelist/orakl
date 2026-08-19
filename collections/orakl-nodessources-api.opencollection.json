@@ -1,0 +1,395 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Orakl Oncology public website CommonContent NodesSources API",
+    "version": "1.0.7"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "NodesSources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieves the collection of NodesSources resources.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/nodes_sources",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The collection page number"
+              },
+              {
+                "name": "itemsPerPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of items per page"
+              },
+              {
+                "name": "properties[]",
+                "value": "",
+                "type": "query",
+                "description": "Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty}"
+              },
+              {
+                "name": "reachable",
+                "value": "",
+                "type": "query",
+                "description": "Filter items when their node-type is reachable or not."
+              },
+              {
+                "name": "node.nodeType.reachable",
+                "value": "",
+                "type": "query",
+                "description": "Filter items when their node-type is reachable or not. **Deprecated: Use *reachable* instead.**"
+              },
+              {
+                "name": "publishable",
+                "value": "",
+                "type": "query",
+                "description": "Filter items when their node-type is publishable or not."
+              },
+              {
+                "name": "node.nodeType.publishable",
+                "value": "",
+                "type": "query",
+                "description": "Filter items when their node-type is publishable or not. **Deprecated: Use *publishable* instead.**"
+              },
+              {
+                "name": "_locale",
+                "value": "",
+                "type": "query",
+                "description": "Filter items with translation locale (en)."
+              },
+              {
+                "name": "tagGroup[]",
+                "value": "tag-1,tag-2&tagGroup[]=tag-3,tag-4",
+                "type": "query",
+                "description": "Filter entities by tag name groups (comma separated). Inside groups filter use OR, between each groups filter use AND."
+              },
+              {
+                "name": "title",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metaTitle",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metaDescription",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.id[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.nodeName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.nodeName[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.parent",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.parent[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.parent.nodeName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.parent.nodeName[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.nodesTags.tag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.nodesTags.tag[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.nodesTags.tag.tagName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.nodesTags.tag.tagName[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.nodeTypeName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.nodeTypeName[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "translation.id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "translation.id[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "translation.locale",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "translation.locale[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "publishedAt[before]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "publishedAt[strictly_before]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "publishedAt[after]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "publishedAt[strictly_after]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.createdAt[before]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.createdAt[strictly_before]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.createdAt[after]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.createdAt[strictly_after]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.updatedAt[before]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.updatedAt[strictly_before]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.updatedAt[after]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.updatedAt[strictly_after]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order[publishedAt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order[node.position]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order[node.createdAt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order[node.updatedAt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "publishedAt[archive]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "noIndex",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.visible",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.home",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.position",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.position[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.position[between]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.position[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.position[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.position[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "node.position[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "not[node.nodeTypeName]",
+                "value": "",
+                "type": "query",
+                "description": "Filter items that are not equal."
+              },
+              {
+                "name": "not[node.nodeTypeName][]",
+                "value": "",
+                "type": "query",
+                "description": "Filter items that are not equal."
+              },
+              {
+                "name": "not[node.id]",
+                "value": "",
+                "type": "query",
+                "description": "Filter items that are not equal."
+              },
+              {
+                "name": "not[node.id][]",
+                "value": "",
+                "type": "query",
+                "description": "Filter items that are not equal."
+              },
+              {
+                "name": "not[node.nodesTags.tag.tagName]",
+                "value": "",
+                "type": "query",
+                "description": "Filter items that are not equal."
+              },
+              {
+                "name": "not[node.nodesTags.tag.tagName][]",
+                "value": "",
+                "type": "query",
+                "description": "Filter items that are not equal."
+              },
+              {
+                "name": "intersect[node.nodesTags.tag]",
+                "value": "",
+                "type": "query",
+                "description": "Discriminate an existing filter with additional filtering value using a new inner join."
+              },
+              {
+                "name": "intersect[node.nodesTags.tag][]",
+                "value": "",
+                "type": "query",
+                "description": "Discriminate an existing filter with additional filtering value using a new inner join."
+              },
+              {
+                "name": "intersect[node.nodesTags.tag.tagName]",
+                "value": "",
+                "type": "query",
+                "description": "Discriminate an existing filter with additional filtering value using a new inner join."
+              },
+              {
+                "name": "intersect[node.nodesTags.tag.tagName][]",
+                "value": "",
+                "type": "query",
+                "description": "Discriminate an existing filter with additional filtering value using a new inner join."
+              },
+              {
+                "name": "_preview",
+                "value": "1",
+                "type": "query",
+                "description": "Enables preview mode (requires a valid bearer JWT token)"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieves the collection of NodesSources resources."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
