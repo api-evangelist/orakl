@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Orakl Oncology public website CommonContent API
+  title: Orakl Oncology public website Common Content API
   description: Orakl Oncology public website API
   version: 1.0.7
 servers:
@@ -44,7 +44,7 @@ paths:
           links: {}
         '401':
           description: Invalid JWT Token
-      summary: Retrieves a CommonContent resource.
+      summary: Retrieves a CommonContent resource
       description: Retrieves a CommonContent resource.
       parameters:
       - name: _preview
@@ -61,11 +61,42 @@ paths:
       - JWT: []
 components:
   schemas:
-    ? TranslationInterface.jsonld-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders
-    : type: object
     ? NodesSourcesHeadInterface-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders_noid
     : type: object
-    ? Node-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders
+    Error:
+      type: object
+      description: A representation of common errors.
+      properties:
+        title:
+          readOnly: true
+          description: A short, human-readable summary of the problem.
+          type:
+          - string
+          - 'null'
+        detail:
+          readOnly: true
+          description: A human-readable explanation specific to this occurrence of the problem.
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - number
+          - 'null'
+          examples:
+          - 404
+          default: 400
+        instance:
+          readOnly: true
+          description: A URI reference that identifies the specific occurrence of the problem. It may or may not yield further information if dereferenced.
+          type:
+          - string
+          - 'null'
+        type:
+          readOnly: true
+          description: A URI reference that identifies the problem type
+          type: string
+    ? Node.x-www-form-urlencoded-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders
     : type: object
       required:
       - nodeName
@@ -84,7 +115,7 @@ components:
         tags:
           type: array
           items:
-            $ref: '#/components/schemas/Tag-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders'
+            $ref: '#/components/schemas/Tag.x-www-form-urlencoded-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders'
     ? NodesSources-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders
     : type: object
       properties:
@@ -105,6 +136,189 @@ components:
           $ref: '#/components/schemas/Node-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders'
         translation:
           $ref: '#/components/schemas/TranslationInterface-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders'
+        slug:
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+      required:
+      - node
+      - translation
+    ? Tag.x-www-form-urlencoded-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders
+    : type: object
+      properties:
+        visible:
+          description: Is this tag visible in website?
+          default: true
+          example: 'true'
+          type: boolean
+        slug:
+          readOnly: true
+          description: Unique tag name (slug) used to build content URL or filter queries.
+          example: this-is-a-tag-name
+          type: string
+    ? TranslationInterface.x-www-form-urlencoded-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders
+    : type: object
+    ? Tag-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders
+    : type: object
+      properties:
+        visible:
+          description: Is this tag visible in website?
+          default: true
+          example: 'true'
+          type: boolean
+        slug:
+          readOnly: true
+          description: Unique tag name (slug) used to build content URL or filter queries.
+          example: this-is-a-tag-name
+          type: string
+    ? NodesSourcesHeadInterface.x-www-form-urlencoded-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders_noid
+    : type: object
+    ? Tag.jsonld-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders
+    : allOf:
+      - $ref: '#/components/schemas/HydraItemBaseSchema'
+      - type: object
+        properties:
+          visible:
+            description: Is this tag visible in website?
+            default: true
+            example: 'true'
+            type: boolean
+          slug:
+            readOnly: true
+            description: Unique tag name (slug) used to build content URL or filter queries.
+            example: this-is-a-tag-name
+            type: string
+      description: Tags are hierarchical entities used to qualify Nodes.
+    ? TranslationInterface-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders
+    : type: object
+    ? CommonContent.jsonld-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders
+    : allOf:
+      - $ref: '#/components/schemas/HydraItemBaseSchema'
+      - type: object
+        properties:
+          home:
+            anyOf:
+            - $ref: '#/components/schemas/NodesSources.jsonld-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders'
+            - type: 'null'
+          errorPage:
+            anyOf:
+            - $ref: '#/components/schemas/WalkerInterface.jsonld-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders_noid'
+            - type: 'null'
+          head:
+            anyOf:
+            - $ref: '#/components/schemas/NodesSourcesHeadInterface.jsonld-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders_noid'
+            - type: 'null'
+          footers:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - string
+              - 'null'
+    ? Node-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders
+    : type: object
+      required:
+      - nodeName
+      properties:
+        nodeName:
+          maxLength: 255
+          description: Unique node name (slug) used to build content URL
+          default: ''
+          example: this-is-a-node-name
+          type: string
+        visible:
+          description: Is this node visible in website navigation?
+          default: true
+          example: 'true'
+          type: boolean
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders'
+    ? WalkerInterface.jsonld-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders_noid
+    : type: object
+    ? CommonContent.x-www-form-urlencoded-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders
+    : type: object
+      properties:
+        home:
+          anyOf:
+          - $ref: '#/components/schemas/NodesSources.x-www-form-urlencoded-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders'
+          - type: 'null'
+        errorPage:
+          anyOf:
+          - $ref: '#/components/schemas/WalkerInterface.x-www-form-urlencoded-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders_noid'
+          - type: 'null'
+        head:
+          anyOf:
+          - $ref: '#/components/schemas/NodesSourcesHeadInterface.x-www-form-urlencoded-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders_noid'
+          - type: 'null'
+        footers:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
+    ? WalkerInterface-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders_noid
+    : type: object
+    ? WalkerInterface.x-www-form-urlencoded-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders_noid
+    : type: object
+    ? NodesSources.jsonld-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders
+    : allOf:
+      - $ref: '#/components/schemas/HydraItemBaseSchema'
+      - type: object
+        properties:
+          title:
+            maxLength: 250
+            description: Content title
+            example: This is a title
+            type:
+            - string
+            - 'null'
+          publishedAt:
+            description: Content publication date and time
+            type:
+            - string
+            - 'null'
+            format: date-time
+          node:
+            $ref: '#/components/schemas/Node.jsonld-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders'
+          translation:
+            $ref: '#/components/schemas/TranslationInterface.jsonld-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders'
+          slug:
+            readOnly: true
+            type: string
+          '@type':
+            readOnly: true
+            type: string
+        required:
+        - node
+        - translation
+      description: NodesSources store Node content according to a translation and a NodeType.
+    ? NodesSources.x-www-form-urlencoded-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders
+    : type: object
+      properties:
+        title:
+          maxLength: 250
+          description: Content title
+          example: This is a title
+          type:
+          - string
+          - 'null'
+        publishedAt:
+          description: Content publication date and time
+          type:
+          - string
+          - 'null'
+          format: date-time
+        node:
+          $ref: '#/components/schemas/Node.x-www-form-urlencoded-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders'
+        translation:
+          $ref: '#/components/schemas/TranslationInterface.x-www-form-urlencoded-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders'
         slug:
           readOnly: true
           type: string
@@ -162,164 +376,37 @@ components:
             type:
             - string
             - 'null'
-    ? CommonContent.x-www-form-urlencoded-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders
+    ? NodesSourcesHeadInterface.jsonld-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders_noid
     : type: object
-      properties:
-        home:
-          anyOf:
-          - $ref: '#/components/schemas/NodesSources.x-www-form-urlencoded-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders'
-          - type: 'null'
-        errorPage:
-          anyOf:
-          - $ref: '#/components/schemas/WalkerInterface.x-www-form-urlencoded-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders_noid'
-          - type: 'null'
-        head:
-          anyOf:
-          - $ref: '#/components/schemas/NodesSourcesHeadInterface.x-www-form-urlencoded-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders_noid'
-          - type: 'null'
-        footers:
-          type:
-          - array
-          - 'null'
-          items:
-            type:
-            - string
-            - 'null'
-    ? NodesSourcesHeadInterface.x-www-form-urlencoded-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders_noid
+    ? TranslationInterface.jsonld-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders
     : type: object
-    ? WalkerInterface.jsonld-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders_noid
-    : type: object
-    ? Tag.x-www-form-urlencoded-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders
-    : type: object
-      properties:
-        visible:
-          description: Is this tag visible in website?
-          default: true
-          example: 'true'
-          type: boolean
-        slug:
-          readOnly: true
-          description: Unique tag name (slug) used to build content URL or filter queries.
-          example: this-is-a-tag-name
-          type: string
-    ? WalkerInterface.x-www-form-urlencoded-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders_noid
-    : type: object
-    ? Tag.jsonld-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders
+    ? Node.jsonld-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders
     : allOf:
       - $ref: '#/components/schemas/HydraItemBaseSchema'
       - type: object
+        required:
+        - nodeName
         properties:
+          nodeName:
+            maxLength: 255
+            description: Unique node name (slug) used to build content URL
+            default: ''
+            example: this-is-a-node-name
+            type: string
           visible:
-            description: Is this tag visible in website?
+            description: Is this node visible in website navigation?
             default: true
             example: 'true'
             type: boolean
-          slug:
-            readOnly: true
-            description: Unique tag name (slug) used to build content URL or filter queries.
-            example: this-is-a-tag-name
-            type: string
-      description: Tags are hierarchical entities used to qualify Nodes.
-    ? NodesSourcesHeadInterface.jsonld-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders_noid
-    : type: object
-    ? Tag-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders
-    : type: object
-      properties:
-        visible:
-          description: Is this tag visible in website?
-          default: true
-          example: 'true'
-          type: boolean
-        slug:
-          readOnly: true
-          description: Unique tag name (slug) used to build content URL or filter queries.
-          example: this-is-a-tag-name
-          type: string
-    Error:
-      type: object
-      description: A representation of common errors.
-      properties:
-        title:
-          readOnly: true
-          description: A short, human-readable summary of the problem.
-          type:
-          - string
-          - 'null'
-        detail:
-          readOnly: true
-          description: A human-readable explanation specific to this occurrence of the problem.
-          type:
-          - string
-          - 'null'
-        status:
-          type:
-          - number
-          - 'null'
-          examples:
-          - 404
-          default: 400
-        instance:
-          readOnly: true
-          description: A URI reference that identifies the specific occurrence of the problem. It may or may not yield further information if dereferenced.
-          type:
-          - string
-          - 'null'
-        type:
-          readOnly: true
-          description: A URI reference that identifies the problem type
-          type: string
-    ? NodesSources.jsonld-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders
-    : allOf:
-      - $ref: '#/components/schemas/HydraItemBaseSchema'
-      - type: object
-        properties:
-          title:
-            maxLength: 250
-            description: Content title
-            example: This is a title
-            type:
-            - string
-            - 'null'
-          publishedAt:
-            description: Content publication date and time
-            type:
-            - string
-            - 'null'
-            format: date-time
-          node:
-            $ref: '#/components/schemas/Node.jsonld-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders'
-          translation:
-            $ref: '#/components/schemas/TranslationInterface.jsonld-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders'
-          slug:
-            readOnly: true
-            type: string
-          '@type':
-            readOnly: true
-            type: string
-        required:
-        - node
-        - translation
-      description: NodesSources store Node content according to a translation and a NodeType.
-    ? Node.x-www-form-urlencoded-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders
-    : type: object
-      required:
-      - nodeName
-      properties:
-        nodeName:
-          maxLength: 255
-          description: Unique node name (slug) used to build content URL
-          default: ''
-          example: this-is-a-node-name
-          type: string
-        visible:
-          description: Is this node visible in website navigation?
-          default: true
-          example: 'true'
-          type: boolean
-        tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tag.x-www-form-urlencoded-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders'
+          tags:
+            type: array
+            items:
+              $ref: '#/components/schemas/Tag.jsonld-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders'
+      description: 'Node entities are the central feature of Roadiz,
+
+        it describes a document-like object which can be inherited
+
+        with *NodesSources* to create complex data structures.'
     Error.jsonld:
       allOf:
       - $ref: '#/components/schemas/HydraItemBaseSchema'
@@ -360,93 +447,6 @@ components:
             - string
             - 'null'
       description: A representation of common errors.
-    ? TranslationInterface.x-www-form-urlencoded-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders
-    : type: object
-    ? CommonContent.jsonld-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders
-    : allOf:
-      - $ref: '#/components/schemas/HydraItemBaseSchema'
-      - type: object
-        properties:
-          home:
-            anyOf:
-            - $ref: '#/components/schemas/NodesSources.jsonld-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders'
-            - type: 'null'
-          errorPage:
-            anyOf:
-            - $ref: '#/components/schemas/WalkerInterface.jsonld-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders_noid'
-            - type: 'null'
-          head:
-            anyOf:
-            - $ref: '#/components/schemas/NodesSourcesHeadInterface.jsonld-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders_noid'
-            - type: 'null'
-          footers:
-            type:
-            - array
-            - 'null'
-            items:
-              type:
-              - string
-              - 'null'
-    ? TranslationInterface-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders
-    : type: object
-    ? WalkerInterface-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders_noid
-    : type: object
-    ? Node.jsonld-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders
-    : allOf:
-      - $ref: '#/components/schemas/HydraItemBaseSchema'
-      - type: object
-        required:
-        - nodeName
-        properties:
-          nodeName:
-            maxLength: 255
-            description: Unique node name (slug) used to build content URL
-            default: ''
-            example: this-is-a-node-name
-            type: string
-          visible:
-            description: Is this node visible in website navigation?
-            default: true
-            example: 'true'
-            type: boolean
-          tags:
-            type: array
-            items:
-              $ref: '#/components/schemas/Tag.jsonld-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders'
-      description: 'Node entities are the central feature of Roadiz,
-
-        it describes a document-like object which can be inherited
-
-        with *NodesSources* to create complex data structures.'
-    ? NodesSources.x-www-form-urlencoded-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders
-    : type: object
-      properties:
-        title:
-          maxLength: 250
-          description: Content title
-          example: This is a title
-          type:
-          - string
-          - 'null'
-        publishedAt:
-          description: Content publication date and time
-          type:
-          - string
-          - 'null'
-          format: date-time
-        node:
-          $ref: '#/components/schemas/Node.x-www-form-urlencoded-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders'
-        translation:
-          $ref: '#/components/schemas/TranslationInterface.x-www-form-urlencoded-get_common_content_web_response_walker_walker_level_children_children_count_nodes_sources_base_nodes_sources_cta_nodes_sources_default_urls_tag_base_translation_base_document_display_document_folders'
-        slug:
-          readOnly: true
-          type: string
-        '@type':
-          readOnly: true
-          type: string
-      required:
-      - node
-      - translation
   securitySchemes:
     JWT:
       type: http

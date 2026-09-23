@@ -1,15 +1,7 @@
 {
   "provider": "orakl",
   "sources": [
-    "orakl-commoncontent-api-openapi.yml",
-    "orakl-customform-api-openapi.yml",
-    "orakl-folder-api-openapi.yml",
-    "orakl-login-check-api-openapi.yml",
-    "orakl-nodessources-api-openapi.yml",
-    "orakl-page-api-openapi.yml",
-    "orakl-tag-api-openapi.yml",
-    "orakl-translation-api-openapi.yml",
-    "orakl-webresponse-api-openapi.yml"
+    "_original/orakl-website-openapi-original.json"
   ],
   "outputs": [
     "orakl-commoncontent-api-openapi.yml",
@@ -25,6 +17,21 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "orakl-website-openapi-original.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "orakl-website-openapi-original.json: declared missing tag: Login Check",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "orakl-commoncontent-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "orakl-customform-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "orakl-folder-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "orakl-login-check-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "orakl-nodessources-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "orakl-page-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "orakl-tag-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "orakl-translation-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "orakl-webresponse-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

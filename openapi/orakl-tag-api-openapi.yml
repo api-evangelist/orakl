@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Orakl Oncology public website CommonContent Tag API
+  title: Orakl Oncology public website Tag API
   description: Orakl Oncology public website API
   version: 1.0.7
 servers:
@@ -46,7 +46,7 @@ paths:
                   $ref: '#/components/schemas/Tag.x-www-form-urlencoded-tag_base'
         '401':
           description: Invalid JWT Token
-      summary: Retrieves the collection of Tag resources.
+      summary: Retrieves the collection of Tag resources
       description: Retrieves the collection of Tag resources.
       parameters:
       - name: page
@@ -569,6 +569,54 @@ components:
           description: Unique tag name (slug) used to build content URL or filter queries.
           example: this-is-a-tag-name
           type: string
+    HydraCollectionBaseSchema:
+      allOf:
+      - $ref: '#/components/schemas/HydraCollectionBaseSchemaNoPagination'
+      - type: object
+        properties:
+          hydra:view:
+            type: object
+            properties:
+              '@id':
+                type: string
+                format: iri-reference
+              '@type':
+                type: string
+              hydra:first:
+                type: string
+                format: iri-reference
+              hydra:last:
+                type: string
+                format: iri-reference
+              hydra:previous:
+                type: string
+                format: iri-reference
+              hydra:next:
+                type: string
+                format: iri-reference
+            example:
+              '@id': string
+              '@type': string
+              hydra:first: string
+              hydra:last: string
+              hydra:previous: string
+              hydra:next: string
+    Tag.jsonld-tag_base:
+      allOf:
+      - $ref: '#/components/schemas/HydraItemBaseSchema'
+      - type: object
+        properties:
+          visible:
+            description: Is this tag visible in website?
+            default: true
+            example: 'true'
+            type: boolean
+          slug:
+            readOnly: true
+            description: Unique tag name (slug) used to build content URL or filter queries.
+            example: this-is-a-tag-name
+            type: string
+      description: Tags are hierarchical entities used to qualify Nodes.
     HydraCollectionBaseSchemaNoPagination:
       type: object
       properties:
@@ -624,38 +672,6 @@ components:
       required:
       - '@id'
       - '@type'
-    HydraCollectionBaseSchema:
-      allOf:
-      - $ref: '#/components/schemas/HydraCollectionBaseSchemaNoPagination'
-      - type: object
-        properties:
-          hydra:view:
-            type: object
-            properties:
-              '@id':
-                type: string
-                format: iri-reference
-              '@type':
-                type: string
-              hydra:first:
-                type: string
-                format: iri-reference
-              hydra:last:
-                type: string
-                format: iri-reference
-              hydra:previous:
-                type: string
-                format: iri-reference
-              hydra:next:
-                type: string
-                format: iri-reference
-            example:
-              '@id': string
-              '@type': string
-              hydra:first: string
-              hydra:last: string
-              hydra:previous: string
-              hydra:next: string
     Tag-tag_base:
       type: object
       description: Tags are hierarchical entities used to qualify Nodes.
@@ -670,22 +686,6 @@ components:
           description: Unique tag name (slug) used to build content URL or filter queries.
           example: this-is-a-tag-name
           type: string
-    Tag.jsonld-tag_base:
-      allOf:
-      - $ref: '#/components/schemas/HydraItemBaseSchema'
-      - type: object
-        properties:
-          visible:
-            description: Is this tag visible in website?
-            default: true
-            example: 'true'
-            type: boolean
-          slug:
-            readOnly: true
-            description: Unique tag name (slug) used to build content URL or filter queries.
-            example: this-is-a-tag-name
-            type: string
-      description: Tags are hierarchical entities used to qualify Nodes.
   securitySchemes:
     JWT:
       type: http

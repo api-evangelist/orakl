@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Orakl Oncology public website CommonContent Translation API
+  title: Orakl Oncology public website Translation API
   description: Orakl Oncology public website API
   version: 1.0.7
 servers:
@@ -48,7 +48,7 @@ paths:
                   $ref: '#/components/schemas/Translation.x-www-form-urlencoded-translation_base'
         '401':
           description: Invalid JWT Token
-      summary: Retrieves the collection of Translation resources.
+      summary: Retrieves the collection of Translation resources
       description: Retrieves the collection of Translation resources.
       parameters:
       - name: page
@@ -221,6 +221,98 @@ paths:
       - JWT: []
 components:
   schemas:
+    Translation.x-www-form-urlencoded-translation_base:
+      type: object
+      description: 'Translations describe language locales to be used by Nodes,
+
+        Tags, UrlAliases and Documents.'
+      required:
+      - name
+      properties:
+        name:
+          maxLength: 250
+          description: Translation display name
+          default: ''
+          example: French
+          type: string
+        defaultTranslation:
+          description: Is translation default one?
+          default: false
+          example: 'true'
+          type: boolean
+        available:
+          description: Is translation available publicly?
+          default: true
+          example: 'true'
+          type: boolean
+        locale:
+          readOnly: true
+          description: Translation ISO 639-1 locale. See https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes
+          example: fr
+          type: string
+    Translation.jsonld-translation_base:
+      allOf:
+      - $ref: '#/components/schemas/HydraItemBaseSchema'
+      - type: object
+        required:
+        - name
+        properties:
+          name:
+            maxLength: 250
+            description: Translation display name
+            default: ''
+            example: French
+            type: string
+          defaultTranslation:
+            description: Is translation default one?
+            default: false
+            example: 'true'
+            type: boolean
+          available:
+            description: Is translation available publicly?
+            default: true
+            example: 'true'
+            type: boolean
+          locale:
+            readOnly: true
+            description: Translation ISO 639-1 locale. See https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes
+            example: fr
+            type: string
+      description: 'Translations describe language locales to be used by Nodes,
+
+        Tags, UrlAliases and Documents.'
+    HydraCollectionBaseSchema:
+      allOf:
+      - $ref: '#/components/schemas/HydraCollectionBaseSchemaNoPagination'
+      - type: object
+        properties:
+          hydra:view:
+            type: object
+            properties:
+              '@id':
+                type: string
+                format: iri-reference
+              '@type':
+                type: string
+              hydra:first:
+                type: string
+                format: iri-reference
+              hydra:last:
+                type: string
+                format: iri-reference
+              hydra:previous:
+                type: string
+                format: iri-reference
+              hydra:next:
+                type: string
+                format: iri-reference
+            example:
+              '@id': string
+              '@type': string
+              hydra:first: string
+              hydra:last: string
+              hydra:previous: string
+              hydra:next: string
     HydraCollectionBaseSchemaNoPagination:
       type: object
       properties:
@@ -276,99 +368,7 @@ components:
       required:
       - '@id'
       - '@type'
-    HydraCollectionBaseSchema:
-      allOf:
-      - $ref: '#/components/schemas/HydraCollectionBaseSchemaNoPagination'
-      - type: object
-        properties:
-          hydra:view:
-            type: object
-            properties:
-              '@id':
-                type: string
-                format: iri-reference
-              '@type':
-                type: string
-              hydra:first:
-                type: string
-                format: iri-reference
-              hydra:last:
-                type: string
-                format: iri-reference
-              hydra:previous:
-                type: string
-                format: iri-reference
-              hydra:next:
-                type: string
-                format: iri-reference
-            example:
-              '@id': string
-              '@type': string
-              hydra:first: string
-              hydra:last: string
-              hydra:previous: string
-              hydra:next: string
-    Translation.jsonld-translation_base:
-      allOf:
-      - $ref: '#/components/schemas/HydraItemBaseSchema'
-      - type: object
-        required:
-        - name
-        properties:
-          name:
-            maxLength: 250
-            description: Translation display name
-            default: ''
-            example: French
-            type: string
-          defaultTranslation:
-            description: Is translation default one?
-            default: false
-            example: 'true'
-            type: boolean
-          available:
-            description: Is translation available publicly?
-            default: true
-            example: 'true'
-            type: boolean
-          locale:
-            readOnly: true
-            description: Translation ISO 639-1 locale. See https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes
-            example: fr
-            type: string
-      description: 'Translations describe language locales to be used by Nodes,
-
-        Tags, UrlAliases and Documents.'
     Translation-translation_base:
-      type: object
-      description: 'Translations describe language locales to be used by Nodes,
-
-        Tags, UrlAliases and Documents.'
-      required:
-      - name
-      properties:
-        name:
-          maxLength: 250
-          description: Translation display name
-          default: ''
-          example: French
-          type: string
-        defaultTranslation:
-          description: Is translation default one?
-          default: false
-          example: 'true'
-          type: boolean
-        available:
-          description: Is translation available publicly?
-          default: true
-          example: 'true'
-          type: boolean
-        locale:
-          readOnly: true
-          description: Translation ISO 639-1 locale. See https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes
-          example: fr
-          type: string
-    Translation.x-www-form-urlencoded-translation_base:
       type: object
       description: 'Translations describe language locales to be used by Nodes,
 
