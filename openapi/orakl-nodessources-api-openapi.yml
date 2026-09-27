@@ -710,36 +710,6 @@ paths:
       - JWT: []
 components:
   schemas:
-    Node-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps:
-      type: object
-      required:
-      - nodeName
-      properties:
-        nodeName:
-          maxLength: 255
-          description: Unique node name (slug) used to build content URL
-          default: ''
-          example: this-is-a-node-name
-          type: string
-        visible:
-          description: Is this node visible in website navigation?
-          default: true
-          example: 'true'
-          type: boolean
-        createdAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        updatedAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tag-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps'
     ? NodesSources.x-www-form-urlencoded-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps
     : type: object
       description: NodesSources store Node content according to a translation and a NodeType.
@@ -770,6 +740,64 @@ components:
       required:
       - node
       - translation
+    Tag.jsonld-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps:
+      allOf:
+      - $ref: '#/components/schemas/HydraItemBaseSchema'
+      - type: object
+        properties:
+          visible:
+            description: Is this tag visible in website?
+            default: true
+            example: 'true'
+            type: boolean
+          createdAt:
+            type:
+            - string
+            - 'null'
+            format: date-time
+          updatedAt:
+            type:
+            - string
+            - 'null'
+            format: date-time
+          slug:
+            readOnly: true
+            description: Unique tag name (slug) used to build content URL or filter queries.
+            example: this-is-a-tag-name
+            type: string
+      description: Tags are hierarchical entities used to qualify Nodes.
+    HydraCollectionBaseSchemaNoPagination:
+      type: object
+      properties:
+        hydra:totalItems:
+          type: integer
+          minimum: 0
+        hydra:search:
+          type: object
+          properties:
+            '@type':
+              type: string
+            hydra:template:
+              type: string
+            hydra:variableRepresentation:
+              type: string
+            hydra:mapping:
+              type: array
+              items:
+                type: object
+                properties:
+                  '@type':
+                    type: string
+                  variable:
+                    type: string
+                  property:
+                    type:
+                    - string
+                    - 'null'
+                  required:
+                    type: boolean
+    ? TranslationInterface.x-www-form-urlencoded-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps
+    : type: object
     ? Node.x-www-form-urlencoded-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps
     : type: object
       required:
@@ -800,98 +828,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Tag.x-www-form-urlencoded-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps'
-    ? Tag.x-www-form-urlencoded-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps
-    : type: object
-      properties:
-        visible:
-          description: Is this tag visible in website?
-          default: true
-          example: 'true'
-          type: boolean
-        createdAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        updatedAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        slug:
-          readOnly: true
-          description: Unique tag name (slug) used to build content URL or filter queries.
-          example: this-is-a-tag-name
-          type: string
-    HydraCollectionBaseSchema:
-      allOf:
-      - $ref: '#/components/schemas/HydraCollectionBaseSchemaNoPagination'
-      - type: object
-        properties:
-          hydra:view:
-            type: object
-            properties:
-              '@id':
-                type: string
-                format: iri-reference
-              '@type':
-                type: string
-              hydra:first:
-                type: string
-                format: iri-reference
-              hydra:last:
-                type: string
-                format: iri-reference
-              hydra:previous:
-                type: string
-                format: iri-reference
-              hydra:next:
-                type: string
-                format: iri-reference
-            example:
-              '@id': string
-              '@type': string
-              hydra:first: string
-              hydra:last: string
-              hydra:previous: string
-              hydra:next: string
-    Node.jsonld-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps:
-      allOf:
-      - $ref: '#/components/schemas/HydraItemBaseSchema'
-      - type: object
-        required:
-        - nodeName
-        properties:
-          nodeName:
-            maxLength: 255
-            description: Unique node name (slug) used to build content URL
-            default: ''
-            example: this-is-a-node-name
-            type: string
-          visible:
-            description: Is this node visible in website navigation?
-            default: true
-            example: 'true'
-            type: boolean
-          createdAt:
-            type:
-            - string
-            - 'null'
-            format: date-time
-          updatedAt:
-            type:
-            - string
-            - 'null'
-            format: date-time
-          tags:
-            type: array
-            items:
-              $ref: '#/components/schemas/Tag.jsonld-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps'
-      description: 'Node entities are the central feature of Roadiz,
-
-        it describes a document-like object which can be inherited
-
-        with *NodesSources* to create complex data structures.'
     ? NodesSources.jsonld-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps
     : allOf:
       - $ref: '#/components/schemas/HydraItemBaseSchema'
@@ -954,10 +890,6 @@ components:
       required:
       - node
       - translation
-    ? TranslationInterface.jsonld-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps
-    : type: object
-    ? TranslationInterface-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps
-    : type: object
     Tag-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps:
       type: object
       properties:
@@ -981,43 +913,108 @@ components:
           description: Unique tag name (slug) used to build content URL or filter queries.
           example: this-is-a-tag-name
           type: string
-    HydraCollectionBaseSchemaNoPagination:
+    ? TranslationInterface.jsonld-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps
+    : type: object
+    HydraCollectionBaseSchema:
+      allOf:
+      - $ref: '#/components/schemas/HydraCollectionBaseSchemaNoPagination'
+      - type: object
+        properties:
+          hydra:view:
+            type: object
+            properties:
+              '@id':
+                type: string
+                format: iri-reference
+              '@type':
+                type: string
+              hydra:first:
+                type: string
+                format: iri-reference
+              hydra:last:
+                type: string
+                format: iri-reference
+              hydra:previous:
+                type: string
+                format: iri-reference
+              hydra:next:
+                type: string
+                format: iri-reference
+            example:
+              '@id': string
+              '@type': string
+              hydra:first: string
+              hydra:last: string
+              hydra:previous: string
+              hydra:next: string
+    Node-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps:
       type: object
+      required:
+      - nodeName
       properties:
-        hydra:totalItems:
-          type: integer
-          minimum: 0
-        hydra:search:
-          type: object
-          properties:
-            '@type':
-              type: string
-            hydra:template:
-              type: string
-            hydra:variableRepresentation:
-              type: string
-            hydra:mapping:
-              type: array
-              items:
-                type: object
-                properties:
-                  '@type':
-                    type: string
-                  variable:
-                    type: string
-                  property:
-                    type:
-                    - string
-                    - 'null'
-                  required:
-                    type: boolean
-    Tag.jsonld-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps:
+        nodeName:
+          maxLength: 255
+          description: Unique node name (slug) used to build content URL
+          default: ''
+          example: this-is-a-node-name
+          type: string
+        visible:
+          description: Is this node visible in website navigation?
+          default: true
+          example: 'true'
+          type: boolean
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        updatedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps'
+    ? Tag.x-www-form-urlencoded-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps
+    : type: object
+      properties:
+        visible:
+          description: Is this tag visible in website?
+          default: true
+          example: 'true'
+          type: boolean
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        updatedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        slug:
+          readOnly: true
+          description: Unique tag name (slug) used to build content URL or filter queries.
+          example: this-is-a-tag-name
+          type: string
+    Node.jsonld-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps:
       allOf:
       - $ref: '#/components/schemas/HydraItemBaseSchema'
       - type: object
+        required:
+        - nodeName
         properties:
+          nodeName:
+            maxLength: 255
+            description: Unique node name (slug) used to build content URL
+            default: ''
+            example: this-is-a-node-name
+            type: string
           visible:
-            description: Is this tag visible in website?
+            description: Is this node visible in website navigation?
             default: true
             example: 'true'
             type: boolean
@@ -1031,13 +1028,16 @@ components:
             - string
             - 'null'
             format: date-time
-          slug:
-            readOnly: true
-            description: Unique tag name (slug) used to build content URL or filter queries.
-            example: this-is-a-tag-name
-            type: string
-      description: Tags are hierarchical entities used to qualify Nodes.
-    ? TranslationInterface.x-www-form-urlencoded-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps
+          tags:
+            type: array
+            items:
+              $ref: '#/components/schemas/Tag.jsonld-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps'
+      description: 'Node entities are the central feature of Roadiz,
+
+        it describes a document-like object which can be inherited
+
+        with *NodesSources* to create complex data structures.'
+    ? TranslationInterface-nodes_sources_base_nodes_sources_default_user_urls_tag_base_translation_base_document_display_timestamps
     : type: object
     HydraItemBaseSchema:
       type: object

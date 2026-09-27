@@ -133,267 +133,59 @@ paths:
         required: true
 components:
   schemas:
-    CustomForm.jsonld:
+    ConstraintViolation.jsonld:
       allOf:
       - $ref: '#/components/schemas/HydraItemBaseSchema'
       - type: object
         properties:
-          color:
-            maxLength: 7
-            description: Gets the value of color.
-            default: '#000000'
-            type:
-            - string
-            - 'null'
-          name:
-            maxLength: 250
-            default: Untitled
-            type: string
-          displayName:
-            maxLength: 250
-            default: Untitled
+          status:
+            default: 422
+            type: integer
+          violations:
+            type: array
+            items:
+              type: object
+              properties:
+                propertyPath:
+                  type: string
+                  description: The property path of the violation
+                message:
+                  type: string
+                  description: The message associated with the violation
+                code:
+                  type: string
+                  description: The code of the violation
+                hint:
+                  type: string
+                  description: An extra hint to understand the violation
+                payload:
+                  type: object
+                  additionalProperties: true
+                  description: The serialized payload of the violation
+              required:
+              - propertyPath
+              - message
+          detail:
+            readOnly: true
             type: string
           description:
-            type:
-            - string
-            - 'null'
-          email:
-            type:
-            - string
-            - 'null'
-          retentionTime:
-            maxLength: 15
-            type:
-            - string
-            - 'null'
-          id:
-            readOnly: true
-            type: integer
-          createdAt:
-            type:
-            - string
-            - 'null'
-            format: date-time
-          updatedAt:
-            type:
-            - string
-            - 'null'
-            format: date-time
-          open:
-            readOnly: true
-            description: 'Combine open flag and closeDate to determine
-
-              if current form is still available.'
-            type: boolean
-          fieldsNames:
-            readOnly: true
-            description: 'Get every node-type fields names in
-
-              a simple array.'
-            type: array
-            items:
-              type:
-              - string
-              - 'null'
-          fieldsLabels:
-            readOnly: true
-            description: 'Get every node-type fields names in
-
-              a simple array.'
-            type: array
-            items:
-              type:
-              - string
-              - 'null'
-          oneLineSummary:
             readOnly: true
             type: string
-          retentionTimeInterval:
+          type:
+            readOnly: true
+            type: string
+          title:
             readOnly: true
             type:
             - string
             - 'null'
-            format: duration
-          fieldsSummary:
+          instance:
             readOnly: true
-            type: string
-        required:
-        - name
-        - displayName
-        - email
-      description: 'CustomForms describe each node structure family,
-
-        They are mandatory before creating any Node.'
-    ConstraintViolation:
-      type: object
+            type:
+            - string
+            - 'null'
       description: Unprocessable entity
-      properties:
-        status:
-          default: 422
-          type: integer
-        violations:
-          type: array
-          items:
-            type: object
-            properties:
-              propertyPath:
-                type: string
-                description: The property path of the violation
-              message:
-                type: string
-                description: The message associated with the violation
-              code:
-                type: string
-                description: The code of the violation
-              hint:
-                type: string
-                description: An extra hint to understand the violation
-              payload:
-                type: object
-                additionalProperties: true
-                description: The serialized payload of the violation
-            required:
-            - propertyPath
-            - message
-        detail:
-          readOnly: true
-          type: string
-        type:
-          readOnly: true
-          type: string
-        title:
-          readOnly: true
-          type:
-          - string
-          - 'null'
-        instance:
-          readOnly: true
-          type:
-          - string
-          - 'null'
-    Error:
-      type: object
-      description: A representation of common errors.
-      properties:
-        title:
-          readOnly: true
-          description: A short, human-readable summary of the problem.
-          type:
-          - string
-          - 'null'
-        detail:
-          readOnly: true
-          description: A human-readable explanation specific to this occurrence of the problem.
-          type:
-          - string
-          - 'null'
-        status:
-          type:
-          - number
-          - 'null'
-          examples:
-          - 404
-          default: 400
-        instance:
-          readOnly: true
-          description: A URI reference that identifies the specific occurrence of the problem. It may or may not yield further information if dereferenced.
-          type:
-          - string
-          - 'null'
-        type:
-          readOnly: true
-          description: A URI reference that identifies the problem type
-          type: string
     CustomForm:
-      type: object
-      description: 'CustomForms describe each node structure family,
-
-        They are mandatory before creating any Node.'
-      properties:
-        color:
-          maxLength: 7
-          description: Gets the value of color.
-          default: '#000000'
-          type:
-          - string
-          - 'null'
-        name:
-          maxLength: 250
-          default: Untitled
-          type: string
-        displayName:
-          maxLength: 250
-          default: Untitled
-          type: string
-        description:
-          type:
-          - string
-          - 'null'
-        email:
-          type:
-          - string
-          - 'null'
-        retentionTime:
-          maxLength: 15
-          type:
-          - string
-          - 'null'
-        id:
-          readOnly: true
-          type: integer
-        createdAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        updatedAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        open:
-          readOnly: true
-          description: 'Combine open flag and closeDate to determine
-
-            if current form is still available.'
-          type: boolean
-        fieldsNames:
-          readOnly: true
-          description: 'Get every node-type fields names in
-
-            a simple array.'
-          type: array
-          items:
-            type:
-            - string
-            - 'null'
-        fieldsLabels:
-          readOnly: true
-          description: 'Get every node-type fields names in
-
-            a simple array.'
-          type: array
-          items:
-            type:
-            - string
-            - 'null'
-        oneLineSummary:
-          readOnly: true
-          type: string
-        retentionTimeInterval:
-          readOnly: true
-          type:
-          - string
-          - 'null'
-          format: duration
-        fieldsSummary:
-          readOnly: true
-          type: string
-      required:
-      - name
-      - displayName
-      - email
-    CustomForm.x-www-form-urlencoded:
       type: object
       description: 'CustomForms describe each node structure family,
 
@@ -522,6 +314,266 @@ components:
             - string
             - 'null'
       description: A representation of common errors.
+    ConstraintViolation:
+      type: object
+      description: Unprocessable entity
+      properties:
+        status:
+          default: 422
+          type: integer
+        violations:
+          type: array
+          items:
+            type: object
+            properties:
+              propertyPath:
+                type: string
+                description: The property path of the violation
+              message:
+                type: string
+                description: The message associated with the violation
+              code:
+                type: string
+                description: The code of the violation
+              hint:
+                type: string
+                description: An extra hint to understand the violation
+              payload:
+                type: object
+                additionalProperties: true
+                description: The serialized payload of the violation
+            required:
+            - propertyPath
+            - message
+        detail:
+          readOnly: true
+          type: string
+        type:
+          readOnly: true
+          type: string
+        title:
+          readOnly: true
+          type:
+          - string
+          - 'null'
+        instance:
+          readOnly: true
+          type:
+          - string
+          - 'null'
+    CustomForm.x-www-form-urlencoded:
+      type: object
+      description: 'CustomForms describe each node structure family,
+
+        They are mandatory before creating any Node.'
+      properties:
+        color:
+          maxLength: 7
+          description: Gets the value of color.
+          default: '#000000'
+          type:
+          - string
+          - 'null'
+        name:
+          maxLength: 250
+          default: Untitled
+          type: string
+        displayName:
+          maxLength: 250
+          default: Untitled
+          type: string
+        description:
+          type:
+          - string
+          - 'null'
+        email:
+          type:
+          - string
+          - 'null'
+        retentionTime:
+          maxLength: 15
+          type:
+          - string
+          - 'null'
+        id:
+          readOnly: true
+          type: integer
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        updatedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        open:
+          readOnly: true
+          description: 'Combine open flag and closeDate to determine
+
+            if current form is still available.'
+          type: boolean
+        fieldsNames:
+          readOnly: true
+          description: 'Get every node-type fields names in
+
+            a simple array.'
+          type: array
+          items:
+            type:
+            - string
+            - 'null'
+        fieldsLabels:
+          readOnly: true
+          description: 'Get every node-type fields names in
+
+            a simple array.'
+          type: array
+          items:
+            type:
+            - string
+            - 'null'
+        oneLineSummary:
+          readOnly: true
+          type: string
+        retentionTimeInterval:
+          readOnly: true
+          type:
+          - string
+          - 'null'
+          format: duration
+        fieldsSummary:
+          readOnly: true
+          type: string
+      required:
+      - name
+      - displayName
+      - email
+    Error:
+      type: object
+      description: A representation of common errors.
+      properties:
+        title:
+          readOnly: true
+          description: A short, human-readable summary of the problem.
+          type:
+          - string
+          - 'null'
+        detail:
+          readOnly: true
+          description: A human-readable explanation specific to this occurrence of the problem.
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - number
+          - 'null'
+          examples:
+          - 404
+          default: 400
+        instance:
+          readOnly: true
+          description: A URI reference that identifies the specific occurrence of the problem. It may or may not yield further information if dereferenced.
+          type:
+          - string
+          - 'null'
+        type:
+          readOnly: true
+          description: A URI reference that identifies the problem type
+          type: string
+    CustomForm.jsonld:
+      allOf:
+      - $ref: '#/components/schemas/HydraItemBaseSchema'
+      - type: object
+        properties:
+          color:
+            maxLength: 7
+            description: Gets the value of color.
+            default: '#000000'
+            type:
+            - string
+            - 'null'
+          name:
+            maxLength: 250
+            default: Untitled
+            type: string
+          displayName:
+            maxLength: 250
+            default: Untitled
+            type: string
+          description:
+            type:
+            - string
+            - 'null'
+          email:
+            type:
+            - string
+            - 'null'
+          retentionTime:
+            maxLength: 15
+            type:
+            - string
+            - 'null'
+          id:
+            readOnly: true
+            type: integer
+          createdAt:
+            type:
+            - string
+            - 'null'
+            format: date-time
+          updatedAt:
+            type:
+            - string
+            - 'null'
+            format: date-time
+          open:
+            readOnly: true
+            description: 'Combine open flag and closeDate to determine
+
+              if current form is still available.'
+            type: boolean
+          fieldsNames:
+            readOnly: true
+            description: 'Get every node-type fields names in
+
+              a simple array.'
+            type: array
+            items:
+              type:
+              - string
+              - 'null'
+          fieldsLabels:
+            readOnly: true
+            description: 'Get every node-type fields names in
+
+              a simple array.'
+            type: array
+            items:
+              type:
+              - string
+              - 'null'
+          oneLineSummary:
+            readOnly: true
+            type: string
+          retentionTimeInterval:
+            readOnly: true
+            type:
+            - string
+            - 'null'
+            format: duration
+          fieldsSummary:
+            readOnly: true
+            type: string
+        required:
+        - name
+        - displayName
+        - email
+      description: 'CustomForms describe each node structure family,
+
+        They are mandatory before creating any Node.'
     HydraItemBaseSchema:
       type: object
       properties:
@@ -547,58 +599,6 @@ components:
       required:
       - '@id'
       - '@type'
-    ConstraintViolation.jsonld:
-      allOf:
-      - $ref: '#/components/schemas/HydraItemBaseSchema'
-      - type: object
-        properties:
-          status:
-            default: 422
-            type: integer
-          violations:
-            type: array
-            items:
-              type: object
-              properties:
-                propertyPath:
-                  type: string
-                  description: The property path of the violation
-                message:
-                  type: string
-                  description: The message associated with the violation
-                code:
-                  type: string
-                  description: The code of the violation
-                hint:
-                  type: string
-                  description: An extra hint to understand the violation
-                payload:
-                  type: object
-                  additionalProperties: true
-                  description: The serialized payload of the violation
-              required:
-              - propertyPath
-              - message
-          detail:
-            readOnly: true
-            type: string
-          description:
-            readOnly: true
-            type: string
-          type:
-            readOnly: true
-            type: string
-          title:
-            readOnly: true
-            type:
-            - string
-            - 'null'
-          instance:
-            readOnly: true
-            type:
-            - string
-            - 'null'
-      description: Unprocessable entity
   securitySchemes:
     JWT:
       type: http

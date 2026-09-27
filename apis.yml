@@ -52,7 +52,7 @@ tags:
 - Oncology
 - Drug Development
 - Artificial Intelligence
-- Machine-Learning
+- Machine Learning
 - Healthcare
 - Biotechnology
 - Precision Medicine
@@ -72,12 +72,12 @@ tags_raw:
 - Cancer Research
 - Content Management
 - JSON-LD
+- Machine-Learning
 apis:
 - aid: orakl:orakl-commoncontent-api
   name: Orakl CommonContent API
   description: Resource 'CommonContent' operations.
   humanURL: https://www.orakl-oncology.com/api
-  baseURL: https://www.orakl-oncology.com
   tags:
   - CommonContent
   properties:
@@ -104,7 +104,6 @@ apis:
 
     They are mandatory before creating any Node.
   humanURL: https://www.orakl-oncology.com/api
-  baseURL: https://www.orakl-oncology.com
   tags:
   - CustomForm
   properties:
@@ -128,7 +127,6 @@ apis:
   name: Orakl Folder API
   description: Folders entity represent a directory on server with datetime and naming.
   humanURL: https://www.orakl-oncology.com/api
-  baseURL: https://www.orakl-oncology.com
   tags:
   - Folder
   properties:
@@ -152,7 +150,6 @@ apis:
   name: Orakl Login Check API
   description: The Login Check API from Orakl — 1 operation(s) for login check.
   humanURL: https://www.orakl-oncology.com/api
-  baseURL: https://www.orakl-oncology.com
   tags:
   - Login Check
   properties:
@@ -176,7 +173,6 @@ apis:
   name: Orakl NodesSources API
   description: NodesSources store Node content according to a translation and a NodeType.
   humanURL: https://www.orakl-oncology.com/api
-  baseURL: https://www.orakl-oncology.com
   tags:
   - NodesSources
   properties:
@@ -200,7 +196,6 @@ apis:
   name: Orakl Page API
   description: Page node-source entity.
   humanURL: https://www.orakl-oncology.com/api
-  baseURL: https://www.orakl-oncology.com
   tags:
   - Page
   properties:
@@ -224,7 +219,6 @@ apis:
   name: Orakl Tag API
   description: Tags are hierarchical entities used to qualify Nodes.
   humanURL: https://www.orakl-oncology.com/api
-  baseURL: https://www.orakl-oncology.com
   tags:
   - Tag
   properties:
@@ -251,7 +245,6 @@ apis:
 
     Tags, UrlAliases and Documents.
   humanURL: https://www.orakl-oncology.com/api
-  baseURL: https://www.orakl-oncology.com
   tags:
   - Translation
   properties:
@@ -275,7 +268,6 @@ apis:
   name: Orakl WebResponse API
   description: Resource 'WebResponse' operations.
   humanURL: https://www.orakl-oncology.com/api
-  baseURL: https://www.orakl-oncology.com
   tags:
   - WebResponse
   properties:

@@ -324,39 +324,33 @@ paths:
       - JWT: []
 components:
   schemas:
-    Error:
-      type: object
-      description: A representation of common errors.
-      properties:
-        title:
-          readOnly: true
-          description: A short, human-readable summary of the problem.
-          type:
-          - string
-          - 'null'
-        detail:
-          readOnly: true
-          description: A human-readable explanation specific to this occurrence of the problem.
-          type:
-          - string
-          - 'null'
-        status:
-          type:
-          - number
-          - 'null'
-          examples:
-          - 404
-          default: 400
-        instance:
-          readOnly: true
-          description: A URI reference that identifies the specific occurrence of the problem. It may or may not yield further information if dereferenced.
-          type:
-          - string
-          - 'null'
-        type:
-          readOnly: true
-          description: A URI reference that identifies the problem type
-          type: string
+    Folder.jsonld-folder:
+      allOf:
+      - $ref: '#/components/schemas/HydraItemBaseSchema'
+      - type: object
+        properties:
+          color:
+            maxLength: 7
+            default: '#000000'
+            type: string
+          slug:
+            maxLength: 250
+            default: ''
+            type: string
+          visible:
+            default: true
+            type: boolean
+          locked:
+            default: false
+            type: boolean
+          name:
+            readOnly: true
+            type:
+            - string
+            - 'null'
+        required:
+        - slug
+      description: Folders entity represent a directory on server with datetime and naming.
     Folder.x-www-form-urlencoded-folder:
       type: object
       description: Folders entity represent a directory on server with datetime and naming.
@@ -382,38 +376,6 @@ components:
           - 'null'
       required:
       - slug
-    HydraCollectionBaseSchema:
-      allOf:
-      - $ref: '#/components/schemas/HydraCollectionBaseSchemaNoPagination'
-      - type: object
-        properties:
-          hydra:view:
-            type: object
-            properties:
-              '@id':
-                type: string
-                format: iri-reference
-              '@type':
-                type: string
-              hydra:first:
-                type: string
-                format: iri-reference
-              hydra:last:
-                type: string
-                format: iri-reference
-              hydra:previous:
-                type: string
-                format: iri-reference
-              hydra:next:
-                type: string
-                format: iri-reference
-            example:
-              '@id': string
-              '@type': string
-              hydra:first: string
-              hydra:last: string
-              hydra:previous: string
-              hydra:next: string
     HydraCollectionBaseSchemaNoPagination:
       type: object
       properties:
@@ -484,33 +446,38 @@ components:
             - string
             - 'null'
       description: A representation of common errors.
-    Folder.jsonld-folder:
+    HydraCollectionBaseSchema:
       allOf:
-      - $ref: '#/components/schemas/HydraItemBaseSchema'
+      - $ref: '#/components/schemas/HydraCollectionBaseSchemaNoPagination'
       - type: object
         properties:
-          color:
-            maxLength: 7
-            default: '#000000'
-            type: string
-          slug:
-            maxLength: 250
-            default: ''
-            type: string
-          visible:
-            default: true
-            type: boolean
-          locked:
-            default: false
-            type: boolean
-          name:
-            readOnly: true
-            type:
-            - string
-            - 'null'
-        required:
-        - slug
-      description: Folders entity represent a directory on server with datetime and naming.
+          hydra:view:
+            type: object
+            properties:
+              '@id':
+                type: string
+                format: iri-reference
+              '@type':
+                type: string
+              hydra:first:
+                type: string
+                format: iri-reference
+              hydra:last:
+                type: string
+                format: iri-reference
+              hydra:previous:
+                type: string
+                format: iri-reference
+              hydra:next:
+                type: string
+                format: iri-reference
+            example:
+              '@id': string
+              '@type': string
+              hydra:first: string
+              hydra:last: string
+              hydra:previous: string
+              hydra:next: string
     Folder-folder:
       type: object
       description: Folders entity represent a directory on server with datetime and naming.
@@ -536,6 +503,39 @@ components:
           - 'null'
       required:
       - slug
+    Error:
+      type: object
+      description: A representation of common errors.
+      properties:
+        title:
+          readOnly: true
+          description: A short, human-readable summary of the problem.
+          type:
+          - string
+          - 'null'
+        detail:
+          readOnly: true
+          description: A human-readable explanation specific to this occurrence of the problem.
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - number
+          - 'null'
+          examples:
+          - 404
+          default: 400
+        instance:
+          readOnly: true
+          description: A URI reference that identifies the specific occurrence of the problem. It may or may not yield further information if dereferenced.
+          type:
+          - string
+          - 'null'
+        type:
+          readOnly: true
+          description: A URI reference that identifies the problem type
+          type: string
     HydraItemBaseSchema:
       type: object
       properties:
