@@ -69,19 +69,200 @@ paths:
       - JWT: []
 components:
   schemas:
-    ? NodesSourcesHeadInterface.jsonld-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid
-    : type: object
-    ? PersistableInterface.jsonld-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children
+    HydraItemBaseSchema:
+      type: object
+      properties:
+        '@context':
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          type: string
+        '@type':
+          type: string
+      required:
+      - '@id'
+      - '@type'
+    ? RealmInterface.x-www-form-urlencoded-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children
     : type: object
     ? BreadcrumbsInterface.x-www-form-urlencoded-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid
     : type: object
     ? NodesSourcesHeadInterface.x-www-form-urlencoded-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid
     : type: object
-    ? RealmInterface.jsonld-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children
-    : type: object
+    ? WebResponse.jsonld-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children
+    : allOf:
+      - $ref: '#/components/schemas/HydraItemBaseSchema'
+      - type: object
+        properties:
+          item:
+            anyOf:
+            - $ref: '#/components/schemas/PersistableInterface.jsonld-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children'
+            - type: 'null'
+          breadcrumbs:
+            anyOf:
+            - $ref: '#/components/schemas/BreadcrumbsInterface.jsonld-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid'
+            - type: 'null'
+          head:
+            anyOf:
+            - $ref: '#/components/schemas/NodesSourcesHeadInterface.jsonld-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid'
+            - type: 'null'
+          blocks:
+            type:
+            - array
+            - 'null'
+            items:
+              type: array
+              items:
+                type:
+                - string
+                - 'null'
+          realms:
+            type: array
+            items:
+              $ref: '#/components/schemas/RealmInterface.jsonld-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children'
+          hidingBlocks:
+            default: false
+            type: boolean
+          maxAge:
+            description: WebResponse item maximum age in seconds
+            type:
+            - integer
+            - 'null'
     ? NodesSourcesHeadInterface-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid
     : type: object
-    ? RealmInterface.x-www-form-urlencoded-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children
+    ? NodesSourcesHeadInterface.jsonld-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid
+    : type: object
+    ? PersistableInterface.x-www-form-urlencoded-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children
+    : type: object
+    ? BreadcrumbsInterface.jsonld-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid
+    : type: object
+    ? WebResponse-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children
+    : type: object
+      properties:
+        item:
+          anyOf:
+          - $ref: '#/components/schemas/PersistableInterface-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children'
+          - type: 'null'
+        breadcrumbs:
+          anyOf:
+          - $ref: '#/components/schemas/BreadcrumbsInterface-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid'
+          - type: 'null'
+        head:
+          anyOf:
+          - $ref: '#/components/schemas/NodesSourcesHeadInterface-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid'
+          - type: 'null'
+        blocks:
+          type:
+          - array
+          - 'null'
+          items:
+            type: array
+            items:
+              type:
+              - string
+              - 'null'
+        realms:
+          type: array
+          items:
+            $ref: '#/components/schemas/RealmInterface-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children'
+        hidingBlocks:
+          default: false
+          type: boolean
+        maxAge:
+          description: WebResponse item maximum age in seconds
+          type:
+          - integer
+          - 'null'
+    Error:
+      type: object
+      description: A representation of common errors.
+      properties:
+        title:
+          readOnly: true
+          description: A short, human-readable summary of the problem.
+          type:
+          - string
+          - 'null'
+        detail:
+          readOnly: true
+          description: A human-readable explanation specific to this occurrence of the problem.
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - number
+          - 'null'
+          examples:
+          - 404
+          default: 400
+        instance:
+          readOnly: true
+          description: A URI reference that identifies the specific occurrence of the problem. It may or may not yield further information if dereferenced.
+          type:
+          - string
+          - 'null'
+        type:
+          readOnly: true
+          description: A URI reference that identifies the problem type
+          type: string
+    ? PersistableInterface.jsonld-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children
+    : type: object
+    ? BreadcrumbsInterface-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid
+    : type: object
+    ? WebResponse.x-www-form-urlencoded-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children
+    : type: object
+      properties:
+        item:
+          anyOf:
+          - $ref: '#/components/schemas/PersistableInterface.x-www-form-urlencoded-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children'
+          - type: 'null'
+        breadcrumbs:
+          anyOf:
+          - $ref: '#/components/schemas/BreadcrumbsInterface.x-www-form-urlencoded-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid'
+          - type: 'null'
+        head:
+          anyOf:
+          - $ref: '#/components/schemas/NodesSourcesHeadInterface.x-www-form-urlencoded-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid'
+          - type: 'null'
+        blocks:
+          type:
+          - array
+          - 'null'
+          items:
+            type: array
+            items:
+              type:
+              - string
+              - 'null'
+        realms:
+          type: array
+          items:
+            $ref: '#/components/schemas/RealmInterface.x-www-form-urlencoded-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children'
+        hidingBlocks:
+          default: false
+          type: boolean
+        maxAge:
+          description: WebResponse item maximum age in seconds
+          type:
+          - integer
+          - 'null'
+    ? PersistableInterface-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children
+    : type: object
+    ? RealmInterface-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children
+    : type: object
+    ? RealmInterface.jsonld-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children
     : type: object
     Error.jsonld:
       allOf:
@@ -123,187 +304,6 @@ components:
             - string
             - 'null'
       description: A representation of common errors.
-    ? BreadcrumbsInterface.jsonld-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid
-    : type: object
-    ? PersistableInterface.x-www-form-urlencoded-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children
-    : type: object
-    ? WebResponse.x-www-form-urlencoded-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children
-    : type: object
-      properties:
-        item:
-          anyOf:
-          - $ref: '#/components/schemas/PersistableInterface.x-www-form-urlencoded-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children'
-          - type: 'null'
-        breadcrumbs:
-          anyOf:
-          - $ref: '#/components/schemas/BreadcrumbsInterface.x-www-form-urlencoded-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid'
-          - type: 'null'
-        head:
-          anyOf:
-          - $ref: '#/components/schemas/NodesSourcesHeadInterface.x-www-form-urlencoded-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid'
-          - type: 'null'
-        blocks:
-          type:
-          - array
-          - 'null'
-          items:
-            type: array
-            items:
-              type:
-              - string
-              - 'null'
-        realms:
-          type: array
-          items:
-            $ref: '#/components/schemas/RealmInterface.x-www-form-urlencoded-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children'
-        hidingBlocks:
-          default: false
-          type: boolean
-        maxAge:
-          description: WebResponse item maximum age in seconds
-          type:
-          - integer
-          - 'null'
-    ? RealmInterface-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children
-    : type: object
-    ? PersistableInterface-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children
-    : type: object
-    Error:
-      type: object
-      description: A representation of common errors.
-      properties:
-        title:
-          readOnly: true
-          description: A short, human-readable summary of the problem.
-          type:
-          - string
-          - 'null'
-        detail:
-          readOnly: true
-          description: A human-readable explanation specific to this occurrence of the problem.
-          type:
-          - string
-          - 'null'
-        status:
-          type:
-          - number
-          - 'null'
-          examples:
-          - 404
-          default: 400
-        instance:
-          readOnly: true
-          description: A URI reference that identifies the specific occurrence of the problem. It may or may not yield further information if dereferenced.
-          type:
-          - string
-          - 'null'
-        type:
-          readOnly: true
-          description: A URI reference that identifies the problem type
-          type: string
-    ? BreadcrumbsInterface-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid
-    : type: object
-    ? WebResponse-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children
-    : type: object
-      properties:
-        item:
-          anyOf:
-          - $ref: '#/components/schemas/PersistableInterface-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children'
-          - type: 'null'
-        breadcrumbs:
-          anyOf:
-          - $ref: '#/components/schemas/BreadcrumbsInterface-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid'
-          - type: 'null'
-        head:
-          anyOf:
-          - $ref: '#/components/schemas/NodesSourcesHeadInterface-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid'
-          - type: 'null'
-        blocks:
-          type:
-          - array
-          - 'null'
-          items:
-            type: array
-            items:
-              type:
-              - string
-              - 'null'
-        realms:
-          type: array
-          items:
-            $ref: '#/components/schemas/RealmInterface-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children'
-        hidingBlocks:
-          default: false
-          type: boolean
-        maxAge:
-          description: WebResponse item maximum age in seconds
-          type:
-          - integer
-          - 'null'
-    HydraItemBaseSchema:
-      type: object
-      properties:
-        '@context':
-          oneOf:
-          - type: string
-          - type: object
-            properties:
-              '@vocab':
-                type: string
-              hydra:
-                type: string
-                enum:
-                - http://www.w3.org/ns/hydra/core#
-            required:
-            - '@vocab'
-            - hydra
-            additionalProperties: true
-        '@id':
-          type: string
-        '@type':
-          type: string
-      required:
-      - '@id'
-      - '@type'
-    ? WebResponse.jsonld-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children
-    : allOf:
-      - $ref: '#/components/schemas/HydraItemBaseSchema'
-      - type: object
-        properties:
-          item:
-            anyOf:
-            - $ref: '#/components/schemas/PersistableInterface.jsonld-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children'
-            - type: 'null'
-          breadcrumbs:
-            anyOf:
-            - $ref: '#/components/schemas/BreadcrumbsInterface.jsonld-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid'
-            - type: 'null'
-          head:
-            anyOf:
-            - $ref: '#/components/schemas/NodesSourcesHeadInterface.jsonld-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children_noid'
-            - type: 'null'
-          blocks:
-            type:
-            - array
-            - 'null'
-            items:
-              type: array
-              items:
-                type:
-                - string
-                - 'null'
-          realms:
-            type: array
-            items:
-              $ref: '#/components/schemas/RealmInterface.jsonld-page_get_by_path_nodes_sources_nodes_sources_cta_node_listing_urls_tag_base_translation_base_document_display_document_thumbnails_document_display_sources_web_response_walker_children'
-          hidingBlocks:
-            default: false
-            type: boolean
-          maxAge:
-            description: WebResponse item maximum age in seconds
-            type:
-            - integer
-            - 'null'
   securitySchemes:
     JWT:
       type: http
