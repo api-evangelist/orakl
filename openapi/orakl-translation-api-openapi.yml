@@ -221,6 +221,65 @@ paths:
       - JWT: []
 components:
   schemas:
+    Translation-translation_base:
+      type: object
+      description: 'Translations describe language locales to be used by Nodes,
+
+        Tags, UrlAliases and Documents.'
+      required:
+      - name
+      properties:
+        name:
+          maxLength: 250
+          description: Translation display name
+          default: ''
+          example: French
+          type: string
+        defaultTranslation:
+          description: Is translation default one?
+          default: false
+          example: 'true'
+          type: boolean
+        available:
+          description: Is translation available publicly?
+          default: true
+          example: 'true'
+          type: boolean
+        locale:
+          readOnly: true
+          description: Translation ISO 639-1 locale. See https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes
+          example: fr
+          type: string
+    HydraCollectionBaseSchemaNoPagination:
+      type: object
+      properties:
+        hydra:totalItems:
+          type: integer
+          minimum: 0
+        hydra:search:
+          type: object
+          properties:
+            '@type':
+              type: string
+            hydra:template:
+              type: string
+            hydra:variableRepresentation:
+              type: string
+            hydra:mapping:
+              type: array
+              items:
+                type: object
+                properties:
+                  '@type':
+                    type: string
+                  variable:
+                    type: string
+                  property:
+                    type:
+                    - string
+                    - 'null'
+                  required:
+                    type: boolean
     Translation.x-www-form-urlencoded-translation_base:
       type: object
       description: 'Translations describe language locales to be used by Nodes,
@@ -275,65 +334,6 @@ components:
       required:
       - '@id'
       - '@type'
-    HydraCollectionBaseSchemaNoPagination:
-      type: object
-      properties:
-        hydra:totalItems:
-          type: integer
-          minimum: 0
-        hydra:search:
-          type: object
-          properties:
-            '@type':
-              type: string
-            hydra:template:
-              type: string
-            hydra:variableRepresentation:
-              type: string
-            hydra:mapping:
-              type: array
-              items:
-                type: object
-                properties:
-                  '@type':
-                    type: string
-                  variable:
-                    type: string
-                  property:
-                    type:
-                    - string
-                    - 'null'
-                  required:
-                    type: boolean
-    Translation-translation_base:
-      type: object
-      description: 'Translations describe language locales to be used by Nodes,
-
-        Tags, UrlAliases and Documents.'
-      required:
-      - name
-      properties:
-        name:
-          maxLength: 250
-          description: Translation display name
-          default: ''
-          example: French
-          type: string
-        defaultTranslation:
-          description: Is translation default one?
-          default: false
-          example: 'true'
-          type: boolean
-        available:
-          description: Is translation available publicly?
-          default: true
-          example: 'true'
-          type: boolean
-        locale:
-          readOnly: true
-          description: Translation ISO 639-1 locale. See https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes
-          example: fr
-          type: string
     HydraCollectionBaseSchema:
       allOf:
       - $ref: '#/components/schemas/HydraCollectionBaseSchemaNoPagination'

@@ -555,32 +555,7 @@ paths:
       - JWT: []
 components:
   schemas:
-    HydraItemBaseSchema:
-      type: object
-      properties:
-        '@context':
-          oneOf:
-          - type: string
-          - type: object
-            properties:
-              '@vocab':
-                type: string
-              hydra:
-                type: string
-                enum:
-                - http://www.w3.org/ns/hydra/core#
-            required:
-            - '@vocab'
-            - hydra
-            additionalProperties: true
-        '@id':
-          type: string
-        '@type':
-          type: string
-      required:
-      - '@id'
-      - '@type'
-    Tag-tag_base:
+    Tag.x-www-form-urlencoded-tag_base:
       type: object
       description: Tags are hierarchical entities used to qualify Nodes.
       properties:
@@ -624,6 +599,61 @@ components:
                     - 'null'
                   required:
                     type: boolean
+    Tag.jsonld-tag_base:
+      allOf:
+      - $ref: '#/components/schemas/HydraItemBaseSchema'
+      - type: object
+        properties:
+          visible:
+            description: Is this tag visible in website?
+            default: true
+            example: 'true'
+            type: boolean
+          slug:
+            readOnly: true
+            description: Unique tag name (slug) used to build content URL or filter queries.
+            example: this-is-a-tag-name
+            type: string
+      description: Tags are hierarchical entities used to qualify Nodes.
+    Tag-tag_base:
+      type: object
+      description: Tags are hierarchical entities used to qualify Nodes.
+      properties:
+        visible:
+          description: Is this tag visible in website?
+          default: true
+          example: 'true'
+          type: boolean
+        slug:
+          readOnly: true
+          description: Unique tag name (slug) used to build content URL or filter queries.
+          example: this-is-a-tag-name
+          type: string
+    HydraItemBaseSchema:
+      type: object
+      properties:
+        '@context':
+          oneOf:
+          - type: string
+          - type: object
+            properties:
+              '@vocab':
+                type: string
+              hydra:
+                type: string
+                enum:
+                - http://www.w3.org/ns/hydra/core#
+            required:
+            - '@vocab'
+            - hydra
+            additionalProperties: true
+        '@id':
+          type: string
+        '@type':
+          type: string
+      required:
+      - '@id'
+      - '@type'
     HydraCollectionBaseSchema:
       allOf:
       - $ref: '#/components/schemas/HydraCollectionBaseSchemaNoPagination'
@@ -656,36 +686,6 @@ components:
               hydra:last: string
               hydra:previous: string
               hydra:next: string
-    Tag.jsonld-tag_base:
-      allOf:
-      - $ref: '#/components/schemas/HydraItemBaseSchema'
-      - type: object
-        properties:
-          visible:
-            description: Is this tag visible in website?
-            default: true
-            example: 'true'
-            type: boolean
-          slug:
-            readOnly: true
-            description: Unique tag name (slug) used to build content URL or filter queries.
-            example: this-is-a-tag-name
-            type: string
-      description: Tags are hierarchical entities used to qualify Nodes.
-    Tag.x-www-form-urlencoded-tag_base:
-      type: object
-      description: Tags are hierarchical entities used to qualify Nodes.
-      properties:
-        visible:
-          description: Is this tag visible in website?
-          default: true
-          example: 'true'
-          type: boolean
-        slug:
-          readOnly: true
-          description: Unique tag name (slug) used to build content URL or filter queries.
-          example: this-is-a-tag-name
-          type: string
   securitySchemes:
     JWT:
       type: http
