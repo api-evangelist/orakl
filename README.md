@@ -64,6 +64,128 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Orakl is a company surfaced as a portfolio company of speedinvest and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Orakl Oncology is a Paris-based TechBio company, a spin-off from the Gustave Roussy cancer institute, building an AI-powered drug-development platform that combines one of the largest biobanks of patient tumor avatars (organoids) with deep clinical and omics data and machine learning to predict how individual patients will respond to new cancer drug candidates. Its commercial products O-Predict and O-Validate deliver actionable response predictions to drug developers across clinical trials. This API Evangelist profile documents the public website API (an API Platform / Roadiz headless-CMS Hydra + JSON-LD surface with JWT authentication) that powers orakl-oncology.com.
 
-Backed by: speedinvest
+**Areas:** Company · TechBio · Oncology · Drug Development · Artificial Intelligence · Machine Learning · Healthcare · Biotechnology · Precision Medicine · Cancer Research · Content Management · JSON-LD
+
+## Orakl on APIs.io
+
+Everything profiled for Orakl is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/orakl/](https://apis.io/providers/orakl/)** — or go straight to one of the APIs or properties below.
+
+### APIs (9)
+
+- [Orakl CommonContent API](https://apis.io/apis/orakl/orakl-commoncontent-api/) — Resource 'CommonContent' operations.
+- [Orakl CustomForm API](https://apis.io/apis/orakl/orakl-customform-api/) — CustomForms describe each node structure family, They are mandatory before creating any Node.
+- [Orakl Folder API](https://apis.io/apis/orakl/orakl-folder-api/) — Folders entity represent a directory on server with datetime and naming.
+- [Orakl Login Check API](https://apis.io/apis/orakl/orakl-login-check-api/) — The Login Check API from Orakl — 1 operation(s) for login check.
+- [Orakl NodesSources API](https://apis.io/apis/orakl/orakl-nodessources-api/) — NodesSources store Node content according to a translation and a NodeType.
+- [Orakl Page API](https://apis.io/apis/orakl/orakl-page-api/) — Page node-source entity.
+- [Orakl Tag API](https://apis.io/apis/orakl/orakl-tag-api/) — Tags are hierarchical entities used to qualify Nodes.
+- [Orakl Translation API](https://apis.io/apis/orakl/orakl-translation-api/) — Translations describe language locales to be used by Nodes, Tags, UrlAliases and Documents.
+- [Orakl WebResponse API](https://apis.io/apis/orakl/orakl-webresponse-api/) — Resource 'WebResponse' operations.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [orakl-website](https://apis.io/servers/orakl/orakl-website/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Orakl Agentic Access](https://apis.io/agentic-access/orakl/orakl-agentic-access/)
+
+#### Collections (9)
+
+Postman and Open Collection request collections.
+
+- [Orakl Oncology public website CommonContent API](https://apis.io/collections/orakl/open-orakl-commoncontent-api/)
+- [Orakl Oncology public website CommonContent CustomForm API](https://apis.io/collections/orakl/open-orakl-customform-api/)
+- [Orakl Oncology public website CommonContent Folder API](https://apis.io/collections/orakl/open-orakl-folder-api/)
+- [Orakl Oncology public website CommonContent Login Check API](https://apis.io/collections/orakl/open-orakl-login-check-api/)
+- [Orakl Oncology public website CommonContent NodesSources API](https://apis.io/collections/orakl/open-orakl-nodessources-api/)
+- [Orakl Oncology public website CommonContent Page API](https://apis.io/collections/orakl/open-orakl-page-api/)
+- [Orakl Oncology public website CommonContent Tag API](https://apis.io/collections/orakl/open-orakl-tag-api/)
+- [Orakl Oncology public website CommonContent Translation API](https://apis.io/collections/orakl/open-orakl-translation-api/)
+- [Orakl Oncology public website CommonContent WebResponse API](https://apis.io/collections/orakl/open-orakl-webresponse-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Orakl Website Overlay](https://apis.io/overlays/orakl/orakl-website-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Orakl Authentication](https://apis.io/security/orakl/orakl-authentication/)
+- [Orakl Domain Security](https://apis.io/security/orakl/orakl-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.orakl-oncology.com/)
+- [Documentation](https://www.orakl-oncology.com/api)
+- [API reference](https://www.orakl-oncology.com/api/docs.jsonld)
+- [Terms of service](https://www.orakl-oncology.com/legals)
+- [Privacy policy](https://www.orakl-oncology.com/legals)
+
+## API Evangelist rating
+
+**Kin Score 28.8** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 49.1 |
+| Contract governance | 4.5 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 25.6 |
+| Access clarity | 21.1 |
+
+**Agent readiness 29.0** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 18.4** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/orakl/](https://apis.io/providers/orakl/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Orakl: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/orakl/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
